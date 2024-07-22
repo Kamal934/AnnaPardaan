@@ -129,7 +129,7 @@ class _MapScreenState extends State<MapScreen> {
                           child: CustomButton(
                             text: TText.confirmLocation,
                             onPressed: () {
-                              Navigator.push(
+                              Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => const RoleSelectionScreen(),

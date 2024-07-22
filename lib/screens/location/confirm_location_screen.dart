@@ -90,7 +90,7 @@ class _ConfirmLocationScreenState extends State<ConfirmLocationScreen> {
                 print('Entered location: ${_locationController.text}');
               }
               // Navigate to the map screen
-              Navigator.push(
+              Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
                   builder: (context) => MapScreen(
