@@ -5,6 +5,7 @@ class UserModel {
   final String email;
   final String? role; 
   final String? profileImage;
+  final String? restaurantId;
 
   UserModel({
     required this.uid,
@@ -12,5 +13,6 @@ class UserModel {
     required this.email,
     this.role,
     required this.profileImage,
+    this.restaurantId
   });
 }

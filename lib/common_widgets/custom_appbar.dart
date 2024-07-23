@@ -24,8 +24,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       backgroundColor: Colors.white,
       automaticallyImplyLeading: false,
-      scrolledUnderElevation: 0,
-      elevation: 0,
       title: Obx(() {
         String currentLocation = locationController.currentLocation.value.isNotEmpty
             ? locationController.currentLocation.value
@@ -91,7 +89,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 borderRadius: const BorderRadius.all(Radius.circular(10)),
                 child: Image.network(
                   userImageUrl,
-                  fit: BoxFit.cover, // Ensure the image covers the container
+                  fit: BoxFit.cover, 
                 ),
               ),
             ),

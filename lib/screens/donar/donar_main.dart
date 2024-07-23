@@ -1,11 +1,14 @@
+import 'package:annapardaan/screens/donar/widgets/new_donation_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:annapardaan/common_widgets/custom_bottom_navbar.dart';
-import 'package:annapardaan/screens/community/community_screen.dart';
-import 'package:annapardaan/screens/donar/screen/add_restaurant_creen.dart';
-import 'package:annapardaan/screens/donar/screen/donation_home_screen.dart';
-import 'package:annapardaan/screens/donar/screen/hungerspot_screen.dart';
+import 'package:provider/provider.dart';
+import '../../common_widgets/custom_bottom_navbar.dart';
 import '../../common_widgets/navigation_drawer.dart.dart';
+import '../../screens/community/community_screen.dart';
+import '../../screens/donar/screen/donation_home_screen.dart';
+import '../../screens/donar/screen/hungerspot_screen.dart';
+import '../../providers/user_provider.dart';
 import '../../utils/constants/images.dart';
+import 'screen/add_restaurant_creen.dart';
 
 class DonorMain extends StatefulWidget {
   const DonorMain({super.key});
@@ -37,14 +40,27 @@ class _DonorMainState extends State<DonorMain> {
         angle: 0.8,
         child: FloatingActionButton(
           onPressed: () {
-            Navigator.push(
+            final userProvider = Provider.of<UserProvider>(context, listen: false);
+            final restaurantId = userProvider.currentUser.restaurantId;
+
+            if (restaurantId != null && restaurantId.isNotEmpty) {
+              Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) =>
-                        const AddRestaurantScreen(isDonor: true)));
+                  builder: (context) => NewDonationScreen(restaurantId: restaurantId),
+                ),
+              );
+            } else {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const AddRestaurantScreen(isDonor: true),
+                ),
+              );
+            }
           },
           backgroundColor: Colors.red,
-          elevation: 0, 
+          elevation: 0,
           highlightElevation: 0,
           child: Transform.rotate(
             angle: -0.8,

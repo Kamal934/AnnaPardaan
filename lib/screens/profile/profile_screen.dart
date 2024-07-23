@@ -1,3 +1,4 @@
+import 'package:annapardaan/common_widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:annapardaan/screens/profile/edit_profile_screen.dart';
 import 'package:annapardaan/utils/constants/text_strings.dart';
@@ -17,7 +18,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(TText.appbarTittle5),
+        title: const Text(TText.appbarTittle5,
+            style: TextStyle(fontWeight: FontWeight.bold)),
         centerTitle: true,
         backgroundColor: Colors.white,
         elevation: 0,
@@ -44,7 +46,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
             String fullName = userProvider.currentUser.fullName;
             String email = userProvider.currentUser.email;
-            String? profileImage = userProvider.currentUser.profileImage ??TImages.profileImage;
+            String? profileImage =
+                userProvider.currentUser.profileImage ?? TImages.profileImage;
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -54,7 +57,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     children: [
                       SizedBox(
                         width: 80.0,
-                        height: 80.0, 
+                        height: 80.0,
                         child: Stack(
                           children: [
                             ClipRRect(
@@ -62,13 +65,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               child: Image.network(
                                 profileImage,
                                 width: 80.0,
-                                height: 80.0, 
+                                height: 80.0,
                                 fit: BoxFit.cover,
                               ),
                             ),
                             const Align(
                               alignment: Alignment.bottomRight,
-                              child:  CircleAvatar(
+                              child: CircleAvatar(
                                 radius: 15.0,
                                 backgroundColor: Colors.white,
                                 child: Icon(
@@ -123,36 +126,41 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ],
                 ),
                 const SizedBox(height: 20.0),
-                Center(
-                  widthFactor: double.infinity,
-                  child: TextButton(
-                    onPressed: () {},
-                    style: TextButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 40.0, vertical: 10.0),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8.0),
+                Align(
+                  alignment: Alignment.center,
+                  child: Container(
+                    constraints:
+                        const BoxConstraints(maxWidth: double.infinity),
+                    child: OutlinedButton(
+                      onPressed: () {},
+                      style: OutlinedButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 40.0, vertical: 10.0),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        side: const BorderSide(color: Colors.red),
                       ),
-                    ),
-                    child: const Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.share,
-                          color: Colors.red,
-                        ),
-                        SizedBox(width: 10),
-                        Text(
-                          'Share my Impact',
-                          style: TextStyle(color: Colors.red, fontSize: 14),
-                        ),
-                      ],
+                      child: const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.share,
+                            color: Colors.red,
+                          ),
+                          SizedBox(width: 10),
+                          Text(
+                            'Share my Impact',
+                            style: TextStyle(color: Colors.red, fontSize: 14),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-                const SizedBox(height: 20.0),
+                const SizedBox(height: 10.0),
                 _buildProfileOption(
                   icon: Icons.person,
                   title: TText.profileInfo,
@@ -191,7 +199,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   icon: Icons.logout_outlined,
                   title: TText.logout,
                   subtitle: TText.logoutSubtitle,
-                  onTap: () {},
+                  onTap: () => _showLogoutDialog(context),
                 ),
               ],
             );
@@ -243,28 +251,90 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
+  Widget _buildProfileOption({
+    required IconData icon,
+    required String title,
+    required String subtitle,
+    Widget? trailing,
+    required VoidCallback onTap,
+  }) {
+    return ListTile(
+      contentPadding: const EdgeInsets.symmetric(vertical: 5, horizontal: 6.0),
+      leading: Icon(icon),
+      minTileHeight: 30,
+      title: Text(
+        title,
+        style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+      ),
+      subtitle: Text(
+        subtitle,
+        style: const TextStyle(fontSize: 12, fontWeight: FontWeight.normal),
+      ),
+      trailing: trailing ?? const Icon(Icons.arrow_forward_ios),
+      onTap: onTap,
+    );
+  }
 
-
-Widget _buildProfileOption({
-  required IconData icon,
-  required String title,
-  required String subtitle,
-  Widget? trailing,
-  required VoidCallback onTap,
-}) {
-  return ListTile(
-    contentPadding: const EdgeInsets.symmetric(vertical: 5, horizontal: 6.0),
-    leading: Icon(icon),
-    minTileHeight:30,
-    title: Text(
-      title,
-      style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-    ),
-    subtitle: Text(
-      subtitle,
-      style: const TextStyle(fontSize: 12, fontWeight: FontWeight.normal),
-    ),
-    trailing: trailing ?? const Icon(Icons.arrow_forward_ios),
-    onTap: onTap,
-  );}}
-
+  void _showLogoutDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          icon: CircleAvatar(
+              radius: 50,
+              backgroundColor: const Color.fromRGBO(227, 57, 56, 0.6),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Image.asset(
+                  'assets/images/icons/exit.png',
+                  width: 70,
+                  height: 70,
+                ),
+              )),
+          title: const Text(
+            'Already leaving?',
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+          ),
+          content: const Text(
+            'We will keep an eye on your missions and coins while you\'re gone. And we miss you a lot..',
+            style: TextStyle(
+              fontSize: 10,
+            ),
+          ),
+          actions: [
+            CustomButton(
+              text: TText.logout,
+              onPressed: () async {
+                await Provider.of<UserProvider>(context, listen: false)
+                    .logout(context);
+              },
+            ),
+            SizedBox(
+              height: 50,
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                style: ElevatedButton.styleFrom(
+                  disabledBackgroundColor: Colors.transparent,
+                  backgroundColor: Colors.grey[150],
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                ),
+                child: const Text(
+                  'No, I am staying',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+}

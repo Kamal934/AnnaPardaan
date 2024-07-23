@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:annapardaan/onboarding/onboarding_screen.dart';
 import 'package:annapardaan/screens/auth/login_screen.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 import '../utils/constants/colors.dart';
 
 class MyApp extends StatelessWidget {
@@ -10,7 +11,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       theme: ThemeData(
         primaryColor: TColors.primaryLight,
         scaffoldBackgroundColor: Colors.white,
