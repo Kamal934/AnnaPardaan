@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:annapardaan/screens/donar/screen/donation_home_screen.dart';
+import 'package:toastification/toastification.dart';
 import '../../common_widgets/custom_text_field.dart';
 import '../../common_widgets/custom_button.dart';
 import '../../utils/constants/text_strings.dart';
@@ -20,29 +21,27 @@ class _PasswordScreenState extends State<PasswordScreen> {
   Future<void> _login() async {
     try {
       if (_passwordController.text.isEmpty) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Please enter a password.'),
-            duration: Duration(seconds: 2),
-          ),
-        );
+        toastification.show(
+            style: ToastificationStyle.minimal,
+            autoCloseDuration: const Duration(seconds: 5),
+            alignment: Alignment.topRight,
+            primaryColor: Colors.red,
+            title: const Text('Please enter a password.'));
+
         return;
       }
 
-
       Navigator.pushReplacement(
-        // ignore: use_build_context_synchronously
         context,
         MaterialPageRoute(builder: (context) => const DonationScreen()),
       );
     } catch (e) {
-      // ignore: use_build_context_synchronously
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Login failed. Please check your credentials.'),
-          duration: Duration(seconds: 2),
-        ),
-      );
+      toastification.show(
+          style: ToastificationStyle.minimal,
+          autoCloseDuration: const Duration(seconds: 5),
+          alignment: Alignment.topRight,
+          primaryColor: Colors.red,
+          title: const Text('Login failed. Please check your credentials.'));
 
       if (kDebugMode) {
         print(e); // Print the error for debugging purposes

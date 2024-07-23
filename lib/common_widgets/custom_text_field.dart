@@ -54,13 +54,13 @@ class _CustomTextFieldState extends State<CustomTextField> {
           borderSide: const BorderSide(
             color:Colors.transparent, // Set inactive border color to transparent
           ),
-          borderRadius: BorderRadius.circular(10.0), // Adjust radius as needed
+          borderRadius: BorderRadius.circular(10.0),
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: const BorderSide(
             color: Colors.red, // Set active border color to red
           ),
-          borderRadius: BorderRadius.circular(10.0), // Adjust radius as needed
+          borderRadius: BorderRadius.circular(10.0),
         ),
         errorText: _errorText,
       ),

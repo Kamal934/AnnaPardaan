@@ -72,6 +72,7 @@ dependencies:
   google_maps_polyline: ^1.0.3
   flutter_polyline_points: ^2.1.0
   shimmer: ^3.0.0
+  toastification: ^2.1.0
 
 dev_dependencies:
   flutter_test:

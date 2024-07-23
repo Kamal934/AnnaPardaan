@@ -13,7 +13,7 @@ import 'widgets/active_order.dart';
 
 class VolunteerHomeScreen extends StatelessWidget {
   final LatLng orderLocation =
-      const LatLng(40.7128, -74.0060); // Example location
+      const LatLng(40.7128, -74.0060);
   final List<LatLng> routePoints = [
     const LatLng(40.7128, -74.0060),
     const LatLng(40.7200, -74.0100),

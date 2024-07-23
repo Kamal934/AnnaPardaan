@@ -6,6 +6,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get/get.dart';
 import 'package:annapardaan/screens/donar/widgets/custom_slider.dart';
 import 'package:annapardaan/common_widgets/custom_image_card_picker.dart';
+import 'package:toastification/toastification.dart';
 import '../../../controller/location_service.dart';
 import '../../../common_widgets/custom_button.dart';
 import '../../../common_widgets/custom_choosing_button.dart';
@@ -72,13 +73,19 @@ class _NewDonationScreenState extends State<NewDonationScreen> {
   }
 
   void _saveDonationDetails() async {
-    // if (titleController.text.isEmpty ||
-    //     descriptionController.text.isEmpty ||
-    //     _images.isEmpty ||
-    //     locationController.currentLocation.value.isEmpty) {
-    //   Get.snackbar('Incomplete Details', 'Please enter all required fields and add at least one photo');
-    //   return;
-    // }
+    if (titleController.text.isEmpty ||
+        descriptionController.text.isEmpty ||
+        _images.isEmpty ||
+        locationController.currentLocation.value.isEmpty) {
+          toastification.show(
+        style: ToastificationStyle.minimal,
+        autoCloseDuration: const Duration(seconds: 5),
+        alignment: Alignment.topRight,
+        primaryColor: Colors.red,
+          title: const Text(
+              'Incomplete Details\', \'Please enter all required fields and add at least one photo'));
+      return;
+    }
 
     try {
       List<String> imageUrls = [];
@@ -90,8 +97,14 @@ class _NewDonationScreenState extends State<NewDonationScreen> {
           if (kDebugMode) {
             print('Failed to upload image: $image');
           }
-          Get.snackbar(
-              'Error', 'Failed to upload some images. Please try again.');
+          toastification.show(
+        style: ToastificationStyle.minimal,
+        autoCloseDuration: const Duration(seconds: 5),
+        alignment: Alignment.topRight,
+        primaryColor: Colors.red,
+          title: const Text(
+              'Error\',\'Failed to upload some images. Please try again.'));
+
           return;
         }
       }
@@ -113,12 +126,24 @@ class _NewDonationScreenState extends State<NewDonationScreen> {
       });
 
       Navigator.pop(context);
-      Get.snackbar('Success', 'Donation details saved successfully');
+      toastification.show(
+        style: ToastificationStyle.minimal,
+        autoCloseDuration: const Duration(seconds: 5),
+        alignment: Alignment.topRight,
+        primaryColor: Colors.green,
+          title: const Text(
+              'Success\', \'Donation details saved successfully'));
     } catch (e) {
       if (kDebugMode) {
         print('Error saving donation details: $e');
       }
-      Get.snackbar('Error', 'Failed to save donation details');
+      toastification.show(
+        style: ToastificationStyle.minimal,
+        autoCloseDuration: const Duration(seconds: 5),
+        alignment: Alignment.topRight,
+        primaryColor: Colors.red,
+          title: const Text(
+              'Error\', \'Failed to save donation details'));
     }
   }
 

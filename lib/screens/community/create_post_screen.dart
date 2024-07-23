@@ -8,6 +8,7 @@ import 'package:annapardaan/screens/community/widget/google_gemini_service.dart'
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:mime/mime.dart';
+import 'package:toastification/toastification.dart';
 import '../../providers/user_provider.dart';
 import '../../utils/constants/colors.dart';
 import '../../utils/constants/text_strings.dart';
@@ -87,9 +88,14 @@ class _CreatePostScreenState extends State<CreatePostScreen> {
 
     final String postContent = _postController.text.trim();
     if (postContent.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Post content cannot be empty')),
-      );
+      
+      toastification.show(
+          style: ToastificationStyle.minimal,
+          autoCloseDuration: const Duration(seconds: 5),
+          alignment: Alignment.topRight,
+          primaryColor: Colors.red,
+          title:    const Text('Post content cannot be empty'));
+       
       setState(() {
         _isLoading = false;
       });

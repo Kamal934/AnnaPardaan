@@ -63,32 +63,3 @@ class CustomBottomNavBar extends StatelessWidget {
 
 
 
-
-// class CustomNotchedRectangle extends NotchedShape {
-//   const CustomNotchedRectangle();
-
-//   @override
-//   Path getOuterPath(Rect host, Rect? guest) {
-//     if (guest == null || !host.overlaps(guest)) {
-//       return Path()..addRect(host);
-//     }
-
-//     final double notchRadius = guest.width / 6.0;
-//     final double notchWidth = notchRadius * 2.0;
-//     final double notchHeight = notchRadius * 2.0;
-
-//     final double leftCornerX = guest.left - notchWidth / 3;
-//     final double rightCornerX = guest.right + notchWidth / 3;
-//     final double topCornerY = guest.top - notchHeight;
-
-//     return Path()
-//       ..moveTo(host.left, host.top)
-//       ..lineTo(leftCornerX, host.top)
-//       ..lineTo(guest.center.dx, topCornerY)
-//       ..lineTo(rightCornerX, host.top)
-//       ..lineTo(host.right, host.top)
-//       ..lineTo(host.right, host.bottom)
-//       ..lineTo(host.left, host.bottom)
-//       ..close();
-//   }
-// }

@@ -197,6 +197,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get/get.dart';
+import 'package:toastification/toastification.dart';
 import '../../../controller/hunger_spot_controller.dart';
 import '../../../models/hunger_spot.dart';
 import '../../../utils/constants/colors.dart';
@@ -296,8 +297,13 @@ class _FillingAddHungerPointsScreenState
         addressController.text.isEmpty ||
         _selectedType.isEmpty ||
         imageUrls.isEmpty) {
-      Get.snackbar('Incomplete Details',
-          'Please enter all required fields and add at least one photo');
+          toastification.show(
+          style: ToastificationStyle.minimal,
+          autoCloseDuration: const Duration(seconds: 5),
+          alignment: Alignment.topRight,
+          primaryColor: Colors.red,
+          title:      const Text('Incomplete Details\',\'Please enter all required fields and add at least one photo'));
+       
       return;
     }
 

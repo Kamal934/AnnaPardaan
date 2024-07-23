@@ -14,7 +14,7 @@ class SplashScreen extends StatelessWidget {
         child: Image.asset(
           TImages.appLogo,
           width: 300, 
-          height: 250, 
+          height: 200, 
         ),
       ),
       duration: const Duration(seconds: 3), 

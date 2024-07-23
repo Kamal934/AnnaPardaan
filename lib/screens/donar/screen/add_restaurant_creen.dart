@@ -7,10 +7,12 @@ import 'package:get/get.dart';
 import 'package:annapardaan/controller/location_service.dart';
 import 'package:annapardaan/screens/donar/widgets/new_donation_screen.dart';
 import 'package:provider/provider.dart';
+import 'package:toastification/toastification.dart';
 import '../../../common_widgets/custom_button.dart';
 import '../../../common_widgets/custom_text_field.dart';
 import '../../../common_widgets/custom_image_card_picker.dart';
 import '../../../providers/user_provider.dart';
+import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/text_strings.dart';
 
 class AddRestaurantScreen extends StatefulWidget {
@@ -37,16 +39,16 @@ class _AddRestaurantScreenState extends State<AddRestaurantScreen> {
   }
 
   Future<void> _pickImage(File imageFile) async {
-  setState(() {
-    _images.add(imageFile);
-  });
-  final imageUrl = await _uploadImageToFirestore(imageFile);
-  if (imageUrl != null) {
     setState(() {
-      imageUrls.add(imageUrl);
+      _images.add(imageFile);
     });
+    final imageUrl = await _uploadImageToFirestore(imageFile);
+    if (imageUrl != null) {
+      setState(() {
+        imageUrls.add(imageUrl);
+      });
+    }
   }
-}
 
   Future<String?> _uploadImageToFirestore(File image) async {
     try {
@@ -72,7 +74,13 @@ class _AddRestaurantScreenState extends State<AddRestaurantScreen> {
         panController.text.isEmpty ||
         _images.isEmpty ||
         locationController.currentLocation.value.isEmpty) {
-      Get.snackbar('Incomplete Details', 'Please enter all required fields and add at least one photo');
+      toastification.show(
+          style: ToastificationStyle.minimal,
+          autoCloseDuration: const Duration(seconds: 5),
+          alignment: Alignment.topRight,
+          primaryColor: TColors.primaryLight,
+          title: const Text(
+              'Incomplete Details\', \'Please enter all required fields and add at least one photo'));
       return;
     }
 
@@ -85,7 +93,8 @@ class _AddRestaurantScreenState extends State<AddRestaurantScreen> {
     }
 
     try {
-      final docRef = await FirebaseFirestore.instance.collection('restaurants').add({
+      final docRef =
+          await FirebaseFirestore.instance.collection('restaurants').add({
         'name': nameController.text,
         'fssai': fssaiController.text,
         'pan': panController.text,
@@ -95,10 +104,16 @@ class _AddRestaurantScreenState extends State<AddRestaurantScreen> {
       });
 
       // Update user provider with new restaurant ID
+      // ignore: use_build_context_synchronously
       final userProvider = Provider.of<UserProvider>(context, listen: false);
       userProvider.updateRestaurantId(docRef.id);
 
-      Get.snackbar('Success', 'Details saved successfully');
+      toastification.show(
+          style: ToastificationStyle.minimal,
+          autoCloseDuration: const Duration(seconds: 5),
+          alignment: Alignment.topRight,
+          primaryColor: Colors.green,
+          title: const Text('Success\', \'Details saved successfully'));
       Navigator.pushReplacement(
         // ignore: use_build_context_synchronously
         context,
@@ -107,15 +122,23 @@ class _AddRestaurantScreenState extends State<AddRestaurantScreen> {
         ),
       );
     } catch (e) {
-      Get.snackbar('Error', 'Failed to save details');
+      toastification.show(
+          style: ToastificationStyle.minimal,
+          autoCloseDuration: const Duration(seconds: 5),
+          alignment: Alignment.topRight,
+          primaryColor: Colors.red,
+          title: const Text('Error\', \'Failed to save details'));
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    final String titleText = widget.isDonor ? TText.restaurant : TText.organization;
-    final String nameHint = widget.isDonor ? TText.restaurantName : TText.organizationName;
-    final String licenseHint = widget.isDonor ? TText.fssaiLicence : TText.registrationNumber;
+    final String titleText =
+        widget.isDonor ? TText.restaurant : TText.organization;
+    final String nameHint =
+        widget.isDonor ? TText.restaurantName : TText.organizationName;
+    final String licenseHint =
+        widget.isDonor ? TText.fssaiLicence : TText.registrationNumber;
     const String panHint = TText.panCardNumber;
 
     return Scaffold(
@@ -166,7 +189,8 @@ class _AddRestaurantScreenState extends State<AddRestaurantScreen> {
             const Divider(color: Color.fromARGB(255, 239, 238, 245)),
             const Text(
               TText.addPhotos,
-              style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+              style:
+                  TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 10),
             ImageCard(
@@ -230,14 +254,12 @@ class _AddRestaurantScreenState extends State<AddRestaurantScreen> {
             }),
             const SizedBox(height: 10),
             const Divider(color: Color.fromARGB(255, 239, 238, 245)),
-            
             const SizedBox(height: 8),
             CustomTextField(
               controller: fssaiController,
               hintText: licenseHint,
             ),
             const SizedBox(height: 10),
-            
             const SizedBox(height: 8),
             CustomTextField(
               controller: panController,

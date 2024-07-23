@@ -19,7 +19,7 @@ class BadgeCard extends StatelessWidget {
           backgroundColor: Colors.white,
           backgroundImage: AssetImage(
             imagePath,
-          ), // Replace with actual badge image
+          ), 
           radius: 50,
         ),
         const SizedBox(height: 4),

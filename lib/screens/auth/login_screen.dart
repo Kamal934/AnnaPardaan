@@ -8,6 +8,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:annapardaan/utils/constants/images.dart';
 import 'package:annapardaan/screens/auth/signup_screen.dart';
 import 'package:annapardaan/screens/auth/forget_password.dart';
+import 'package:toastification/toastification.dart';
 import '../../common_widgets/custom_text_field.dart';
 import '../../common_widgets/custom_button.dart';
 import '../../providers/user_provider.dart';
@@ -82,12 +83,18 @@ class _LoginScreenState extends State<LoginScreen> {
       }
 
       // Display error message to the user
-      // ignore: use_build_context_synchronously
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(errorMessage),
-        ),
-      );
+      toastification.show(
+        style: ToastificationStyle.minimal,
+        autoCloseDuration: const Duration(seconds: 5),
+        alignment: Alignment.topRight,
+        primaryColor: Colors.red,
+          title:  Text(
+              errorMessage));
+      // ScaffoldMessenger.of(context).showSnackBar(
+      //   SnackBar(
+      //     content: Text(errorMessage),
+      //   ),
+      // );
     }
   }
 

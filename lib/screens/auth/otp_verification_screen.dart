@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:toastification/toastification.dart';
 import '../../common_widgets/custom_button.dart';
 import '../../common_widgets/otp_input_field.dart';
 import '../../utils/constants/text_strings.dart';
@@ -34,13 +35,14 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
 
     try {
       await _auth.signInWithCredential(credential);
+      toastification.show(
+          style: ToastificationStyle.minimal,
+          autoCloseDuration: const Duration(seconds: 5),
+          alignment: Alignment.topRight,
+          primaryColor: Colors.green,
+          title: const Text('Phone number verified successfully'));
+
       // Navigate to the ConfirmLocationScreen
-      // ignore: use_build_context_synchronously
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Phone number verified successfully'),
-        ),
-      );
       Navigator.pushReplacement(
         // ignore: use_build_context_synchronously
         context,
@@ -48,11 +50,13 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
       );
     } catch (e) {
       // ignore: use_build_context_synchronously
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Failed to verify OTP.'),
-        ),
-      );
+      toastification.show(
+          style: ToastificationStyle.minimal,
+          autoCloseDuration: const Duration(seconds: 5),
+          alignment: Alignment.topRight,
+          primaryColor: Colors.red,
+          title: const Text('Failed to verify OTP.'));
+
       if (kDebugMode) {
         print(e);
       }
@@ -66,11 +70,13 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
         await _auth.signInWithCredential(credential);
       },
       verificationFailed: (FirebaseAuthException e) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('Failed to resend OTP: ${e.message}'),
-          ),
-        );
+        toastification.show(
+          style: ToastificationStyle.minimal,
+          autoCloseDuration: const Duration(seconds: 5),
+          alignment: Alignment.topRight,
+          primaryColor: Colors.red,
+          title:  Text('Failed to resend OTP: ${e.message}'));
+        
         if (kDebugMode) {
           print(e);
         }
@@ -79,11 +85,13 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
         setState(() {
           _verificationId = verificationId;
         });
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('OTP has been resent.'),
-          ),
-        );
+        toastification.show(
+          style: ToastificationStyle.minimal,
+          autoCloseDuration: const Duration(seconds: 5),
+          alignment: Alignment.topRight,
+          primaryColor: Colors.red,
+          title:  const Text('OTP has been resent.'));
+        
       },
       codeAutoRetrievalTimeout: (String verificationId) {
         setState(() {
@@ -126,7 +134,7 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const Text(
-                   TText.noOtpRecieve,
+                    TText.noOtpRecieve,
                     style: TextStyle(color: Colors.black),
                   ),
                   TextButton(

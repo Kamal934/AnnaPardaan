@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:annapardaan/utils/constants/images.dart';
 import '../../common_widgets/custom_button.dart';

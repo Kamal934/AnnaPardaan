@@ -39,13 +39,11 @@ class _CustomSwitchState extends State<CustomSwitch> {
     );
 
     return Switch(
-      // This bool value toggles the switch.
       value: light,
       overlayColor: overlayColor,
       trackColor: trackColor,
       thumbColor: const WidgetStatePropertyAll<Color>(Colors.white),
       onChanged: (bool value) {
-        // This is called when the user toggles the switch.
         setState(() {
           light = value;
         });

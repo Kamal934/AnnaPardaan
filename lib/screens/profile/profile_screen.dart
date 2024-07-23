@@ -309,6 +309,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     .logout(context);
               },
             ),
+            const SizedBox(height: 5,),
             SizedBox(
               height: 50,
               width: double.infinity,

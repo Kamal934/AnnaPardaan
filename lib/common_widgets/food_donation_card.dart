@@ -15,19 +15,19 @@ class FoodDonationCard extends StatelessWidget {
         color: Colors.white,
         shape: RoundedRectangleBorder(
           borderRadius:
-              BorderRadius.circular(15.0), // Adjust the radius as needed
+              BorderRadius.circular(15.0),
         ),
         // margin: const EdgeInsets.symmetric(vertical: 10),
         child: Stack(
           children: [
             ClipRRect(
               borderRadius:
-                  BorderRadius.circular(15.0), // Adjust the radius as needed
+                  BorderRadius.circular(15.0), 
               child: Image.network(
                 foodDonation.imageUrl,
                 width: double.infinity,
                 height: 170,
-                fit: BoxFit.cover, // Make sure the image covers the area
+                fit: BoxFit.cover,
               ),
             ),
             Container(
@@ -35,7 +35,7 @@ class FoodDonationCard extends StatelessWidget {
               height: 170,
               decoration: BoxDecoration(
                 borderRadius:
-                    BorderRadius.circular(15.0), // Adjust the radius as needed
+                    BorderRadius.circular(15.0), 
                 gradient: LinearGradient(
                   colors: [
                     Colors.black.withOpacity(0.6),

@@ -15,7 +15,7 @@ class EventCard extends StatelessWidget {
       child: Card(
         color: Colors.white,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15.0), // Adjust the radius as needed
+          borderRadius: BorderRadius.circular(15.0), 
         ),
         margin: const EdgeInsets.symmetric(vertical: 5),
         child: Column(
@@ -23,7 +23,7 @@ class EventCard extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: const BorderRadius.vertical(
-                top: Radius.circular(20.0), // Adjust the radius as needed
+                top: Radius.circular(20.0),
               ),
               child: Image.network(event.imageUrl,
               width: double.infinity,
@@ -57,7 +57,7 @@ class EventCard extends StatelessWidget {
                                 ),),
                               ],
                             ),
-                            const SizedBox(height: 5), // Add spacing between location and date/time
+                            const SizedBox(height: 5),
                             Row(
                               children: [
                                 const Icon(Icons.calendar_today_rounded, size: 18,color: Colors.grey,),

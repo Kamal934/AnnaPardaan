@@ -1,6 +1,7 @@
 import 'package:annapardaan/common_widgets/custom_text_field.dart';
 import 'package:annapardaan/utils/constants/text_strings.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:toastification/toastification.dart';
 import 'filling_add_hunger_spot_screen.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:flutter/foundation.dart';
@@ -50,14 +51,14 @@ class _AddHungerSpotScreenState extends State<AddHungerSpotScreen> {
             LatLng(location.latitude, location.longitude),
           ),
         );
-        // ignore: use_build_context_synchronously
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(
-              'Hunger spot added at (${location.latitude}, ${location.longitude})',
-            ),
-          ),
-        );
+        toastification.show(
+          style: ToastificationStyle.minimal,
+          autoCloseDuration: const Duration(seconds: 5),
+          alignment: Alignment.topRight,
+          primaryColor: Colors.green,
+          title:     Text('Hunger spot added at (${location.latitude}, ${location.longitude})'));
+       
+        
 
         // ignore: use_build_context_synchronously
         _displayBottomSheet(context, newHungerSpot);
@@ -66,12 +67,14 @@ class _AddHungerSpotScreenState extends State<AddHungerSpotScreen> {
       if (kDebugMode) {
         print('Error occurred: $e');
       }
-      // ignore: use_build_context_synchronously
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Could not find location. Please try again.'),
-        ),
-      );
+      toastification.show(
+          style: ToastificationStyle.minimal,
+          autoCloseDuration: const Duration(seconds: 5),
+          alignment: Alignment.topRight,
+          primaryColor: Colors.red,
+          title:     const Text('Could not find location. Please try again.'));
+       
+
     }
   }
 
@@ -103,13 +106,13 @@ class _AddHungerSpotScreenState extends State<AddHungerSpotScreen> {
       point.longitude,
     );
 
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(
-          'Hunger spot added at - $address',
-        ),
-      ),
-    );
+    toastification.show(
+          style: ToastificationStyle.minimal,
+          autoCloseDuration: const Duration(seconds: 5),
+          alignment: Alignment.topRight,
+          primaryColor: Colors.black,
+          title:      Text('Hunger spot added at - $address'));
+       
 
     _displayBottomSheet(context, newHungerSpot);
   }

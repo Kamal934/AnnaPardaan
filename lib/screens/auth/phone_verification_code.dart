@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:annapardaan/screens/auth/otp_verification_screen.dart';
 import 'package:annapardaan/common_widgets/custom_button.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:toastification/toastification.dart';
 
 import '../../utils/constants/text_strings.dart';
 
@@ -27,28 +28,31 @@ class _PhoneVerificationScreenState extends State<PhoneVerificationScreen> {
       verificationCompleted: (PhoneAuthCredential credential) async {
         // Auto verification or instant verification
         await _auth.signInWithCredential(credential);
-        // ignore: use_build_context_synchronously
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(
-                'Phone number automatically verified and user signed in: ${credential.smsCode}'),
-          ),
-        );
+        toastification.show(
+            style: ToastificationStyle.minimal,
+            autoCloseDuration: const Duration(seconds: 5),
+            alignment: Alignment.topRight,
+            primaryColor: Colors.green,
+            title: Text(
+                'Phone number automatically verified and user signed in: ${credential.smsCode}'));
       },
       verificationFailed: (FirebaseAuthException e) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content:
-                Text('Phone number verification failed. Message: ${e.message}'),
-          ),
-        );
+        toastification.show(
+          style: ToastificationStyle.minimal,
+          autoCloseDuration: const Duration(seconds: 5),
+          alignment: Alignment.topRight,
+          primaryColor: Colors.red,
+          title:   Text('Phone number verification failed. Message: ${e.message}'));
+       
       },
       codeSent: (String verificationId, int? resendToken) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Please check your phone for the verification code.'),
-          ),
-        );
+        toastification.show(
+          style: ToastificationStyle.minimal,
+          autoCloseDuration: const Duration(seconds: 5),
+          alignment: Alignment.topRight,
+          primaryColor: Colors.red,
+          title:   const Text('Please check your phone for the verification code.'));
+       
         setState(() {});
         Navigator.push(
           context,

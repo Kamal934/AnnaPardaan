@@ -2,6 +2,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
+import 'package:toastification/toastification.dart';
 import 'providers/user_provider.dart';
 import 'app/app.dart';
 
@@ -14,7 +15,9 @@ Future<void> main() async {
   runApp(
     ChangeNotifierProvider<UserProvider>(
       create: (_) => UserProvider(),
-      child: MyApp(showOnboarding: showOnboarding),
+      child: ToastificationWrapper( // Wrap with ToastificationWrapper
+        child: MyApp(showOnboarding: showOnboarding),
+      ),
     ),
   );
 }
