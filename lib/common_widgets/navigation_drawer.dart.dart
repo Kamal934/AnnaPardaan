@@ -70,10 +70,10 @@ class CustomNavigationDrawer extends StatelessWidget {
             Divider(color: Colors.grey[250]),
             if (userType != 'recipient') ...[
               SizedBox(
-                height: 30,
+                height: 40,
                 child: ListTile(
-                  contentPadding: const EdgeInsets.symmetric(vertical: 0.5, horizontal: 6.0),
-                  leading: Image.asset(TImages.achievementsImageIcon, height: 30, width: 30, color: Colors.black),
+                  contentPadding: const EdgeInsets.symmetric(vertical: 0.5,),
+                  leading: Image.asset(TImages.achievementsImageIcon, height: 33, width: 33, color: Colors.black),
                   title: const Text('My Achievements', style: TextStyle(fontSize: 14), textAlign: TextAlign.right),
                   onTap: () {
                     // Handle navigation to My Achievements

@@ -4,6 +4,11 @@ import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 
+import '../../../common_widgets/custom_painter.dart';
+import '../../../common_widgets/progress_indicator.dart';
+import '../../../utils/constants/colors.dart';
+import '../../../utils/constants/images.dart';
+
 class OrderTrackingScreen extends StatefulWidget {
   final LatLng orderLocation;
   final LatLng volunteerLocation;
@@ -52,8 +57,10 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
     PolylineResult result = await polylinePoints.getRouteBetweenCoordinates(
       googleApiKey: apiKey!,
       request: PolylineRequest(
-        origin: PointLatLng(widget.volunteerLocation.latitude, widget.volunteerLocation.longitude),
-        destination: PointLatLng(widget.orderLocation.latitude, widget.orderLocation.longitude),
+        origin: PointLatLng(widget.volunteerLocation.latitude,
+            widget.volunteerLocation.longitude),
+        destination: PointLatLng(
+            widget.orderLocation.latitude, widget.orderLocation.longitude),
         mode: TravelMode.driving,
       ),
     );
@@ -80,6 +87,8 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
     computePath();
   }
 
+  double progress = 0.5;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,7 +99,10 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
             Navigator.pop(context);
           },
         ),
-        title: const Text('Order #156079'),
+        title: const Text(
+          'Order #156079',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
         actions: [
           TextButton(
             onPressed: () {},
@@ -110,12 +122,14 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
               Marker(
                 markerId: const MarkerId('orderLocation'),
                 position: widget.orderLocation,
-                icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
+                icon: BitmapDescriptor.defaultMarkerWithHue(
+                    BitmapDescriptor.hueRed),
               ),
               Marker(
                 markerId: const MarkerId('volunteerLocation'),
                 position: widget.volunteerLocation,
-                icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
+                icon: BitmapDescriptor.defaultMarkerWithHue(
+                    BitmapDescriptor.hueBlue),
               ),
             },
             polylines: {
@@ -123,7 +137,7 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
                 polylineId: const PolylineId('route'),
                 points: routePoints,
                 color: Colors.blue,
-                width: 4,
+                width: 10,
               ),
             },
           ),
@@ -132,7 +146,10 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
             left: 0,
             right: 0,
             child: Container(
-              color: Colors.white,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                color: Colors.white,
+              ),
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -140,46 +157,100 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
                 children: [
                   Row(
                     children: [
-                      const Expanded(
+                      Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Arriving in 10 mins', style: TextStyle(fontWeight: FontWeight.bold)),
-                            Text('To My Restaurant - Avinashi Rd, Peelamedu,Cbe-05'),
+                            const Text('Arriving in 10 mins',
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            const SizedBox(
+                              height: 8,
+                            ),
+                            ProgressLineIndicator(
+                              progress: progress,
+                              backgroundColor: Colors.grey[200]!,
+                              progressColor: TColors.primaryLight,
+                              height: 4.0,
+                            ),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            const Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Flexible(
+                                  child: Text(
+                                    'To My Restaurant - Avinashi Rd, Peelamedu, Cbe-05',
+                                    style: TextStyle(fontSize: 10),
+                                    overflow: TextOverflow.ellipsis,
+                                    maxLines: 1,
+                                  ),
+                                ),
+                                Text(
+                                  'Edit',
+                                  style: TextStyle(
+                                      fontSize: 12, color: Colors.red),
+                                )
+                              ],
+                            ),
                           ],
                         ),
-                      ),
-                      TextButton(
-                        onPressed: () {},
-                        child: const Text('Edit'),
                       ),
                     ],
                   ),
                   const Divider(),
-                  Row(
-                    children: [
-                      const CircleAvatar(
-                        backgroundImage: NetworkImage('https://via.placeholder.com/150'),
-                      ),
-                      const SizedBox(width: 10),
-                      const Expanded(
-                        child: Text('Ramesh is on the way to pick up the order, and will assist over a call if needed'),
-                      ),
-                      IconButton(
-                        icon: const Icon(Icons.call),
-                        onPressed: () {},
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 10),
-                  ElevatedButton.icon(
-                    onPressed: () {},
-                    icon: const Icon(Icons.add),
-                    label: const Text('Add Pickup Instructions'),
-                    style: ElevatedButton.styleFrom(
-                      foregroundColor: Colors.black, backgroundColor: Colors.grey[200],
-                    ),
-                  ),
+                  Card(
+                      color: Colors.grey[200],
+                      elevation: 4,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(children: [
+                          Row(
+                            children: [
+                              ClipRRect(
+                                  borderRadius: BorderRadius.circular(10),
+                                  child: Image.asset(
+                                    'assets/images/annapardaan_native.png',
+                                    height: 40,
+                                    width: 40,
+                                    fit: BoxFit.cover,
+                                  )),
+                              const SizedBox(width: 10),
+                              const Expanded(
+                                child: Text(
+                                    'Ramesh is on the way to pick up the order, and will assist over a call if needed',
+                                    style: TextStyle(fontSize: 12),),
+                              ),
+                              IconButton(
+                                icon: const Icon(Icons.call),
+                                onPressed: () {},
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 10),
+                          const DashedDivider(
+                            color: Colors.grey,
+                            height: 2.0,
+                            dashWidth: 4.0,
+                            dashSpace: 4.0,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                const Text('Add Pickup Instructions',style: TextStyle(fontSize: 12),),
+                                Image.asset(
+                                  TImages.messageImageIcon,
+                                  height: 30,
+                                  width: 30,
+                                  fit: BoxFit.cover,color: Colors.black54,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ]),
+                      ))
                 ],
               ),
             ),

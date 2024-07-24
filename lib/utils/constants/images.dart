@@ -55,6 +55,7 @@ class TImages {
   static const String achievementsImageIcon='assets/images/icons/trophy_icon.png';
   static const String requesthistoryImageIcon='assets/images/icons/heart.png';
   static const String myOrderImageIcon='assets/images/icons/bag.png';
+  static const String messageImageIcon='assets/images/icons/message_icon.png';
   
 
 }
