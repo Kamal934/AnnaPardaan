@@ -1,11 +1,31 @@
 import 'package:flutter/material.dart';
+import '../utils/constants/images.dart';
+import 'package:provider/provider.dart';
+import '../providers/user_provider.dart';
 
 class CustomNavigationDrawer extends StatelessWidget {
   const CustomNavigationDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return  Drawer(
+    final userProvider = Provider.of<UserProvider>(context);
+    final userType = userProvider.currentUser.role;
+
+    String headerTitle;
+    String headerImage;
+
+    if (userType == 'donor') {
+      headerTitle = 'My Listings';
+      headerImage = TImages.listImageIcon; 
+    } else if (userType == 'recipient') {
+      headerTitle = 'Request History';
+      headerImage = TImages.requesthistoryImageIcon; 
+    } else {
+      headerTitle = 'My Orders';
+      headerImage = TImages.myOrderImageIcon;
+    }
+
+    return Drawer(
       width: 250,
       child: Padding(
         padding: const EdgeInsets.all(10.0),
@@ -16,13 +36,10 @@ class CustomNavigationDrawer extends StatelessWidget {
               height: 40,
               child: ListTile(
                 contentPadding: const EdgeInsets.symmetric(vertical: 0.5, horizontal: 6.0),
-                leading:  Image.asset('assets/images/icons/list_iocn.png',height: 20,width: 20,color: Colors.black,),
-                title: const Text(
-                  'My Listings',style: TextStyle(fontSize: 14),
-                  textAlign: TextAlign.right, // Corrected TextAlign assignment
-                ),
+                leading: Image.asset(headerImage, height: 20, width: 20, color: Colors.black),
+                title: Text(headerTitle, style: const TextStyle(fontSize: 14), textAlign: TextAlign.right),
                 onTap: () {
-                  // Handle navigation to Request History
+                  // Handle navigation to Listings/Orders/Hub
                 },
               ),
             ),
@@ -31,12 +48,8 @@ class CustomNavigationDrawer extends StatelessWidget {
               height: 40,
               child: ListTile(
                 contentPadding: const EdgeInsets.symmetric(vertical: 0.5, horizontal: 6.0),
-                leading: Image.asset('assets/images/icons/event_icon.png',height: 23,width: 23,color: Colors.black,),
-                title: const Text(
-                  'Events',
-                  style: TextStyle(fontSize: 14),
-                  textAlign: TextAlign.right, // Corrected TextAlign assignment
-                ),
+                leading: Image.asset(TImages.eventImageIcon, height: 23, width: 23, color: Colors.black),
+                title: const Text('Events', style: TextStyle(fontSize: 14), textAlign: TextAlign.right),
                 onTap: () {
                   // Handle navigation to Events
                 },
@@ -47,28 +60,33 @@ class CustomNavigationDrawer extends StatelessWidget {
               height: 40,
               child: ListTile(
                 contentPadding: const EdgeInsets.symmetric(vertical: 0.5, horizontal: 6.0),
-                leading: Image.asset('assets/images/icons/group_unselected_icon.png',height: 23,width: 23,color: Colors.black,),
-                title: const Text(
-                  'Community',
-                  style: TextStyle(fontSize: 14),
-                  textAlign: TextAlign.right, // Corrected TextAlign assignment
-                ),
+                leading: Image.asset(TImages.communityImageIcon, height: 23, width: 23, color: Colors.black),
+                title: const Text('Community', style: TextStyle(fontSize: 14), textAlign: TextAlign.right),
                 onTap: () {
                   // Handle navigation to Community
                 },
               ),
             ),
+            Divider(color: Colors.grey[250]),
+            if (userType != 'recipient') ...[
+              SizedBox(
+                height: 30,
+                child: ListTile(
+                  contentPadding: const EdgeInsets.symmetric(vertical: 0.5, horizontal: 6.0),
+                  leading: Image.asset(TImages.achievementsImageIcon, height: 30, width: 30, color: Colors.black),
+                  title: const Text('My Achievements', style: TextStyle(fontSize: 14), textAlign: TextAlign.right),
+                  onTap: () {
+                    // Handle navigation to My Achievements
+                  },
+                ),
+              ),
             Divider(color: Colors.grey[300]),
             SizedBox(
               height: 40,
               child: ListTile(
                 contentPadding: const EdgeInsets.symmetric(vertical: 0.5, horizontal: 6.0),
-                leading: Image.asset('assets/images/icons/ringing_icon.png',height: 20,width: 20,color: Colors.black,),
-                title: const Text(
-                  'Notifications',
-                  style: TextStyle(fontSize: 14),
-                  textAlign: TextAlign.right, // Corrected TextAlign assignment
-                ),
+                leading: Image.asset(TImages.notificationImageIcon, height: 20, width: 20, color: Colors.black),
+                title: const Text('Notifications', style: TextStyle(fontSize: 14), textAlign: TextAlign.right),
                 onTap: () {
                   // Handle navigation to Notifications
                 },
@@ -79,12 +97,8 @@ class CustomNavigationDrawer extends StatelessWidget {
               height: 40,
               child: ListTile(
                 contentPadding: const EdgeInsets.symmetric(vertical: 0.5, horizontal: 6.0),
-                leading:Image.asset('assets/images/icons/user_icon.png',height: 20,width: 20,color: Colors.black,),
-                title: const Text(
-                  'My Account',
-                  style: TextStyle(fontSize: 14),
-                  textAlign: TextAlign.right, // Corrected TextAlign assignment
-                ),
+                leading: Image.asset(TImages.personImageIcon, height: 20, width: 20, color: Colors.black),
+                title: const Text('My Account', style: TextStyle(fontSize: 14), textAlign: TextAlign.right),
                 onTap: () {
                   // Handle navigation to My Account
                 },
@@ -95,12 +109,8 @@ class CustomNavigationDrawer extends StatelessWidget {
               height: 40,
               child: ListTile(
                 contentPadding: const EdgeInsets.symmetric(vertical: 0.5, horizontal: 6.0),
-                leading: Image.asset('assets/images/icons/translate_icon.png',height: 23,width: 23,color: Colors.black,),
-                title: const Text(
-                  'Language',
-                  style: TextStyle(fontSize: 14),
-                  textAlign: TextAlign.right, // Corrected TextAlign assignment
-                ),
+                leading: Image.asset(TImages.translateImageIcon, height: 23, width: 23, color: Colors.black),
+                title: const Text('Language', style: TextStyle(fontSize: 14), textAlign: TextAlign.right),
                 onTap: () {
                   // Handle navigation to Language
                 },
@@ -111,26 +121,20 @@ class CustomNavigationDrawer extends StatelessWidget {
               height: 40,
               child: ListTile(
                 contentPadding: const EdgeInsets.symmetric(vertical: 0.5, horizontal: 6.0),
-                leading: Image.asset('assets/images/icons/exclamation_icon.png',height: 23,width: 23,color: Colors.black,),
-                title: const Text(
-                  'Help Center',
-                  style: TextStyle(fontSize: 14),
-                  textAlign: TextAlign.right, // Corrected TextAlign assignment
-                ),
+                leading: Image.asset(TImages.helpImageIcon, height: 23, width: 23, color: Colors.black),
+                title: const Text('Help Center', style: TextStyle(fontSize: 14), textAlign: TextAlign.right),
                 onTap: () {
                   // Handle navigation to Help Center
                 },
               ),
             ),
-            Divider(color: Colors.grey[250]),
+              Divider(color: Colors.grey[250]),
+            ],
             SizedBox(
               height: 30,
               child: ListTile(
                 contentPadding: const EdgeInsets.symmetric(vertical: 0.5, horizontal: 6.0),
-                title: const Text(
-                  'Business',
-                  style: TextStyle(fontSize: 14),
-                ),
+                title: const Text('Business', style: TextStyle(fontSize: 14)),
                 onTap: () {
                   // Handle navigation to Business
                 },
@@ -140,12 +144,9 @@ class CustomNavigationDrawer extends StatelessWidget {
               height: 30,
               child: ListTile(
                 contentPadding: const EdgeInsets.symmetric(vertical: 0.5, horizontal: 6.0),
-                title: const Text(
-                  'Recipients Hub',
-                  style: TextStyle(fontSize: 14),
-                ),
+                title: const Text('Volunteers Hub', style: TextStyle(fontSize: 14)),
                 onTap: () {
-                  // Handle navigation to Recipients Hub
+                  // Handle navigation to Volunteers Hub
                 },
               ),
             ),
@@ -153,10 +154,7 @@ class CustomNavigationDrawer extends StatelessWidget {
               height: 30,
               child: ListTile(
                 contentPadding: const EdgeInsets.symmetric(vertical: 0.5, horizontal: 6.0),
-                title: const Text(
-                  'Terms & Conditions',
-                  style: TextStyle(fontSize: 14),
-                ),
+                title: const Text('Terms & Conditions', style: TextStyle(fontSize: 14)),
                 onTap: () {
                   // Handle navigation to Terms & Conditions
                 },
@@ -164,20 +162,14 @@ class CustomNavigationDrawer extends StatelessWidget {
             ),
             const Spacer(),
             const ListTile(
-              contentPadding: EdgeInsets.symmetric(vertical: 0.5,horizontal: 6 ),
-              title: Text(
-                'Version 2.221',
-                style: TextStyle(fontSize: 12),
-              ),
+              contentPadding: EdgeInsets.symmetric(vertical: 0.5, horizontal: 6),
+              title: Text('Version 1.221', style: TextStyle(fontSize: 12)),
               subtitle: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'Last update on ',
-                    style: TextStyle(fontSize: 10),
-                  ),
-                  Text('26 June, 2024 at 11:00 pm',style: TextStyle(fontSize: 10,color: Colors.black,fontWeight: FontWeight.bold),)
+                  Text('Last update on ', style: TextStyle(fontSize: 10)),
+                  Text('26 June, 2024 at 11:00 pm', style: TextStyle(fontSize: 10, color: Colors.black, fontWeight: FontWeight.bold)),
                 ],
               ),
             ),

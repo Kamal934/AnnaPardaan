@@ -45,4 +45,16 @@ class TImages {
   static const String hungerSpotScreenImage='assets/images/icons/hunger_Spot_icon.png';
   static const String profileImage='assets/images/first_profile.png';
 
+
+  static const String listImageIcon='assets/images/icons/list_iocn.png';
+  static const String eventImageIcon='assets/images/icons/event_icon.png';
+  static const String personImageIcon='assets/images/icons/user_icon.png';
+  static const String translateImageIcon='assets/images/icons/translate_icon.png';
+  static const String helpImageIcon='assets/images/icons/exclamation_icon.png';
+  static const String notificationImageIcon='assets/images/icons/ringing_icon.png';
+  static const String achievementsImageIcon='assets/images/icons/trophy_icon.png';
+  static const String requesthistoryImageIcon='assets/images/icons/heart.png';
+  static const String myOrderImageIcon='assets/images/icons/bag.png';
+  
+
 }
