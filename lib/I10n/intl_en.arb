@@ -1,0 +1,614 @@
+{
+    "onBoardingTitle1": "Be the Light, Serve with Heart",
+    "@onBoardingTitle1": {
+        "description": "onboarding title 1"
+    },
+    "onBoardingTitle2": "Discover Hungerspots Near You",
+    "@onBoardingTitle2": {
+        "description": "onboarding title 2"
+    },
+    "onBoardingTitle3": "Become a Hunger Hero Today",
+    "@onBoardingTitle3": {
+        "description": "onboarding title 3"
+    },
+    "onBoardingSubTitle1": "Your acts of kindness and service have the power to ignite positive change. Join us on Annapradaan, where your generosity can make a meaningful difference in the lives of those in need.",
+    "@onBoardingSubTitle1": {
+        "description": "onboarding subtitle 1"
+    },
+    "onBoardingSubTitle2": "Join us in our mission to address hunger by identifying and addressing areas in need. Together, we can make a meaningful impact on the lives of those facing food insecurity.",
+    "@onBoardingSubTitle2": {
+        "description": "onboarding subtitle 2"
+    },
+    "onBoardingSubTitle3": "Join our team of dedicated volunteers and play a vital role in fighting hunger in our community. Your contribution can make a significant impact on the lives of those in need.",
+    "@onBoardingSubTitle3": {
+        "description": "onboarding subtitle 3"
+    },
+    "next": "Next",
+    "@next": {
+        "description": "button move to the next screen"
+    },
+    "getStarted": "Get Started",
+    "@getStarted": {
+        "description": "button to login screen"
+    },
+    "mainTitle": "Start your journey of \nkindness here!",
+    "@mainTitle": {
+        "description": "role screen title"
+    },
+    "subtitle": "Choose your Role",
+    "@subtitle": {
+        "description": "role screen subtitle"
+    },
+    "donor": "Donor",
+    "@donor": {
+        "description": "donor is chosen title"
+    },
+    "donorDescription": "Contribute surplus food \nto those in need",
+    "@donorDescription": {
+        "description": "donor is chosen donorDescription"
+    },
+    "recipient": "Recipient",
+    "@recipient": {
+        "description": "recipient is chosen title"
+    },
+    "recipientDescription": "Access donated meals \nto alleviate hunger",
+    "@recipientDescription": {
+        "description": "recipient is chosen recipientDescription"
+    },
+    "volunteer": "Volunteer",
+    "@volunteer": {
+        "description": "volunteer is chosen title"
+    },
+    "volunteerDescription": "Lend a hand by delivering \nmeals to the hungry",
+    "@volunteerDescription": {
+        "description": "volunteer is chosen volunteerDescription"
+    },
+    "forgetPassword": "Forgot your password",
+    "@forgetPassword": {
+        "description": "forgetPassword screen title"
+    },
+    "forgetPassordSubtitle": "Please enter the email address you'd like your password reset information sent to",
+    "@forgetPassordSubtitle": {
+        "description": "forgetPassword screen forgetPassordSubtitle"
+    },
+    "email": "Enter email address",
+    "@email": {
+        "description": "enter the email in forgetPassword"
+    },
+    "mail": "Email",
+    "@mail": {
+        "description": "login and sign-in screen title"
+    },
+    "mailTitle": "Enter Your Email",
+    "@mailTitle": {
+        "description": "login and sign-in screen mailTitle"
+    },
+    "emailExample": "name@example.com",
+    "@emailExample": {
+        "description": "emailExample in forgetPassword"
+    },
+    "resetOtp": "REQUEST RESET OTP",
+    "@resetOtp": {
+        "description": "resetOtp screen title"
+    },
+    "backToLogin": "Back To Login",
+    "@backToLogin": {
+        "description": "navigate back to login screen"
+    },
+    "welcome": "Welcome Back 👋 to",
+    "@welcome": {
+        "description": "welcome back message"
+    },
+    "appname": "Annapradaan",
+    "@appname": {
+        "description": "application name"
+    },
+    "logintext": "Hello there, login to continue",
+    "@logintext": {
+        "description": "login screen subtitle"
+    },
+    "password": "Password",
+    "@password": {
+        "description": "password field"
+    },
+    "passwordTitle": "Enter Your Password",
+    "@passwordTitle": {
+        "description": "password title"
+    },
+    "forgetPasswordQuestion": "Forget Password?",
+    "@forgetPasswordQuestion": {
+        "description": "forget password question"
+    },
+    "login": "LOGIN",
+    "@login": {
+        "description": "login button"
+    },
+    "anotheroption": "or continue with",
+    "@anotheroption": {
+        "description": "alternative login options"
+    },
+    "noAccount": "Don't have an account?",
+    "@noAccount": {
+        "description": "prompt to sign up"
+    },
+    "signUp": "Sign Up",
+    "@signUp": {
+        "description": "sign up button"
+    },
+    "continues": "Continue",
+    "@continues": {
+        "description": "continue button"
+    },
+    "noOtpRecieve": "Didn't receive the code?",
+    "@noOtpRecieve": {
+        "description": "OTP not received prompt"
+    },
+    "resend": "Resend",
+    "@resend": {
+        "description": "resend OTP button"
+    },
+    "getOtp": "Get OTP",
+    "@getOtp": {
+        "description": "get OTP button"
+    },
+    "phnVerficationtitle": "Verify your phone number 📱",
+    "@phnVerficationtitle": {
+        "description": "phone verification title"
+    },
+    "phnVerficationSubtitle": "Enter your mobile number and we will send you a message with verification code.",
+    "@phnVerficationSubtitle": {
+        "description": "phone verification subtitle"
+    },
+    "resetPassword": "Reset Password",
+    "@resetPassword": {
+        "description": "reset password screen title"
+    },
+    "resetPasswordSubtitle": "Set a new password for your account so you can login and access all the features.",
+    "@resetPasswordSubtitle": {
+        "description": "reset password subtitle"
+    },
+    "confirmPassword": "Confirm Password",
+    "@confirmPassword": {
+        "description": "confirm password field"
+    },
+    "confirmPasswordSubtitle": "Confirm your Password",
+    "@confirmPasswordSubtitle": {
+        "description": "confirm password subtitle"
+    },
+    "signupTitle": "Signup Account 👋 to",
+    "@signupTitle": {
+        "description": "signup screen title"
+    },
+    "signupSubtitle": "Hello there, signup to continue",
+    "@signupSubtitle": {
+        "description": "signup screen subtitle"
+    },
+    "nameText": "Enter Your Full Name",
+    "@nameText": {
+        "description": "name input field"
+    },
+    "havingAccount": "Already have an account?",
+    "@havingAccount": {
+        "description": "prompt to login"
+    },
+    "verificationCode": "Verification Code",
+    "@verificationCode": {
+        "description": "verification code field"
+    },
+    "verificationCodeSubtitle": "Please confirm the security code received on your registered email.",
+    "@verificationCodeSubtitle": {
+        "description": "verification code subtitle"
+    },
+    "noverificationCodeRecieve": "Didn't receive the code? Resend",
+    "@noverificationCodeRecieve": {
+        "description": "verification code not received prompt"
+    },
+    "activeDonation": "Active Donation",
+    "@activeDonation": {
+        "description": "active donation section title"
+    },
+    "featureEvents": "Feature Events",
+    "@featureEvents": {
+        "description": "feature events section title"
+    },
+    "donationHistory": "Donation History",
+    "@donationHistory": {
+        "description": "donation history section title"
+    },
+    "insightscard1": "Data Driven \nacts as Kindness",
+    "@insightscard1": {
+        "description": "insights card 1"
+    },
+    "hungerSpotCoordinates": "Hunger spot added at ",
+    "@hungerSpotCoordinates": {
+        "description": "hunger spot coordinates message"
+    },
+    "addHungerPoint": "Add Hunger Point",
+    "@addHungerPoint": {
+        "description": "add hunger point button"
+    },
+    "addHungerSpot": "Add Hunger Spot",
+    "@addHungerSpot": {
+        "description": "add hunger spot button"
+    },
+    "enterAddress": "Enter address",
+    "@enterAddress": {
+        "description": "enter address field"
+    },
+    "hungerSpot": "Hunger Spot",
+    "@hungerSpot": {
+        "description": "hunger spot section title"
+    },
+    "restaurant": "Restaurant",
+    "@restaurant": {
+        "description": "restaurant option"
+    },
+    "organization": "Organization",
+    "@organization": {
+        "description": "organization option"
+    },
+    "restaurantName": "Restaurant Name",
+    "@restaurantName": {
+        "description": "restaurant name field"
+    },
+    "organizationName": "Organization Name",
+    "@
+
+organizationName": {
+        "description": "organization name field"
+    },
+    "fssaiLicence": "FSSAI Licence",
+    "@fssaiLicence": {
+        "description": "FSSAI licence field"
+    },
+    "registrationNumber": "Registration Number",
+    "@registrationNumber": {
+        "description": "registration number field"
+    },
+    "panCardNumber": "PAN Number",
+    "@panCardNumber": {
+        "description": "PAN card number field"
+    },
+    "add": "Add",
+    "@add": {
+        "description": "add button"
+    },
+    "tittle": "Tittle",
+    "@tittle": {
+        "description": "title field"
+    },
+    "addPhotos": "Add Photos",
+    "@addPhotos": {
+        "description": "add photos button"
+    },
+    "photos": "Photos",
+    "@photos": {
+        "description": "photos section"
+    },
+    "location": "Location",
+    "@location": {
+        "description": "location field"
+    },
+    "refresh": "Refresh",
+    "@refresh": {
+        "description": "refresh button"
+    },
+    "addAnotherRestaurant": "Add another Restaurant",
+    "@addAnotherRestaurant": {
+        "description": "add another restaurant button"
+    },
+    "done": "Done",
+    "@done": {
+        "description": "done button"
+    },
+    "donate": "Donate",
+    "@donate": {
+        "description": "donate button"
+    },
+    "appbarTittle1": "Donate Hunger spot",
+    "@appbarTittle1": {
+        "description": "donate hunger spot screen title"
+    },
+    "verified": "Verified",
+    "@verified": {
+        "description": "verified status"
+    },
+    "appbarTittle2": "Hunger Spots",
+    "@appbarTittle2": {
+        "description": "hunger spots screen title"
+    },
+    "hungerSpotName": "Hunger Spot Name",
+    "@hungerSpotName": {
+        "description": "hunger spot name field"
+    },
+    "hungerSpotType": "Hunger Spot Type",
+    "@hungerSpotType": {
+        "description": "hunger spot type field"
+    },
+    "population": "Population",
+    "@population": {
+        "description": "population field"
+    },
+    "declaration": "I hereby declare that the above information was provided according to my knowledge.",
+    "@declaration": {
+        "description": "declaration statement"
+    },
+    "donateToHungerSpot": "Donate to Hunger Spots",
+    "@donateToHungerSpot": {
+        "description": "donate to hunger spots section title"
+    },
+    "donateToHungerSpotSubtittle": "Donate to Hunger spots which are \nverified by admin",
+    "@donateToHungerSpotSubtittle": {
+        "description": "donate to hunger spots subtitle"
+    },
+    "addToHungerSpot": "Add to Hunger Spots",
+    "@addToHungerSpot": {
+        "description": "add to hunger spots section title"
+    },
+    "addToHungerSpotSubtittle": "Add Hunger spots and help volunteers or\nNGOs to find needy easily",
+    "@addToHungerSpotSubtittle": {
+        "description": "add to hunger spots subtitle"
+    },
+    "appbarTittle3": "New Donation",
+    "@appbarTittle3": {
+        "description": "new donation screen title"
+    },
+    "donationTittle": "Donation Title",
+    "@donationTittle": {
+        "description": "donation title field"
+    },
+    "description": "Description",
+    "@description": {
+        "description": "description field"
+    },
+    "mealQuantity": "Meal Quantity",
+    "@mealQuantity": {
+        "description": "meal quantity field"
+    },
+    "mealExpiryTime": "Meal Expiry Time (in minutes)",
+    "@mealExpiryTime": {
+        "description": "meal expiry time field"
+    },
+    "kg": "kg",
+    "@kg": {
+        "description": "kilogram unit"
+    },
+    "mins": "mins",
+    "@mins": {
+        "description": "minutes unit"
+    },
+    "mealType": "Meal Type",
+    "@mealType": {
+        "description": "meal type field"
+    },
+    "diet": "Diet",
+    "@diet": {
+        "description": "diet field"
+    },
+    "saveDonation": "Save Donation",
+    "@saveDonation": {
+        "description": "save donation button"
+    },
+    "insight": "Insights",
+    "@insight": {
+        "description": "insights section"
+    },
+    "totalDonation": "Total Donations",
+    "@totalDonation": {
+        "description": "total donations field"
+    },
+    "taskCompleted": "Tasks Completed",
+    "@taskCompleted": {
+        "description": "tasks completed field"
+    },
+    "overallStreaks": "Overall  \nStreaks",
+    "@overallStreaks": {
+        "description": "overall streaks field"
+    },
+    "rankInWorkforce": "Rank in \nWorkforce",
+    "@rankInWorkforce": {
+        "description": "rank in workforce field"
+    },
+    "pointEarned": "Points Earned",
+    "@pointEarned": {
+        "description": "points earned field"
+    },
+    "appbarTittle4": "Leaderboard",
+    "@appbarTittle4": {
+        "description": "leaderboard screen title"
+    },
+    "all": "All",
+    "@all": {
+        "description": "all filter option"
+    },
+    "thisWeek": "This Week",
+    "@thisWeek": {
+        "description": "this week filter option"
+    },
+    "friends": "Friends",
+    "@friends": {
+        "description": "friends filter option"
+    },
+    "unknownAddress": "Unknown address",
+    "@unknownAddress": {
+        "description": "unknown address message"
+    },
+    "confirm": "Confirm",
+    "@confirm": {
+        "description": "confirm button"
+    },
+    "currentLocation": "Current Location",
+    "@currentLocation": {
+        "description": "current location option"
+    },
+    "change": "Change",
+    "@change": {
+        "description": "change button"
+    },
+    "confirmLocation": "Confirm your location",
+    "@confirmLocation": {
+        "description": "confirm location prompt"
+    },
+    "appbarTittle5": "Profile",
+    "@appbarTittle5": {
+        "description": "profile screen title"
+    },
+    "profileInfo": "Profile Information",
+    "@profileInfo": {
+        "description": "profile information section"
+    },
+    "profileInfoSubtitle": "Change your account information",
+    "@profileInfoSubtitle": {
+        "description": "profile information subtitle"
+    },
+    "locationSubtitle": "Add or remove your delivery locations",
+    "@locationSubtitle": {
+        "description": "location management subtitle"
+    },
+    "pushNotification": "Push Notifications",
+    "@pushNotification": {
+        "description": "push notifications section"
+    },
+    "pushNotificationSubtitle": "For daily updates you will get it",
+    "@pushNotificationSubtitle": {
+        "description": "push notifications subtitle"
+    },
+    "faq": "FAQ",
+    "@faq": {
+        "description": "frequently asked questions section"
+    },
+    "faqSubtitle": "Frequently asked questions",
+    "@faqSubtitle": {
+        "description": "FAQ subtitle"
+    },
+    "logout": "Logout",
+    "@logout": {
+        "description": "logout button"
+    },
+    "logoutSubtitle": "Logout of your account",
+    "@logoutSubtitle": {
+        "description": "logout subtitle"
+    },
+    "appbarTittle6": "Donation Details",
+    "@appbarTittle6": {
+        "description": "donation details screen title"
+    },
+    "dietType": "Diet Type",
+    "@dietType": {
+        "description": "diet type field"
+    },
+    "instruction": "Instructions",
+    "@instruction": {
+        "description": "instructions field"
+    },
+    "selfPickup": "Self Pick up",
+    "@selfPickup": {
+        "description": "self pick up option"
+    },
+    "requestPartner": "Request Delivery Partner",
+    "@requestPartner": {
+        "description": "request delivery partner option"
+    },
+    "message": "Message",
+    "@message": {
+        "description": "message field"
+    },
+    "requestPost": "Request Post",
+    "@requestPost": {
+        "description": "request post button"
+    },
+    "overallRequest": "Overall \nRequest",
+    "@overallRequest": {
+        "description": "overall request section title"
+    },
+    "donorConnected": "Donors \nConnected",
+    "@donorConnected": {
+        "description": "donors connected section title"
+    },
+    "topDonor": "Your Top Donors",
+    "@topDonor": {
+        "description": "top donors section title"
+    },
+    "leaderBoard": "LeaderBoard",
+    "@leaderBoard": {
+        "description": "leaderboard section title"
+    },
+    "orderHistory": "Order History",
+    "@orderHistory": {
+        "description": "order history section title"
+    },
+    "online": "You are Online",
+    "@online": {
+        "description": "online status message"
+    },
+    "onlineSubtitle": "Let's do our bit today to end hunger",
+    "@onlineSubtitle": {
+        "
+
+description": "online status subtitle"
+    },
+    "activeOrder": "Active Orders",
+    "@activeOrder": {
+        "description": "active orders section title"
+    },
+    "insightsVolunteer": "Tracking the heart of \nyour service",
+    "@insightsVolunteer": {
+        "description": "insights volunteer section subtitle"
+    },
+    "comment": "Comments",
+    "@comment": {
+        "description": "comments section title"
+    },
+    "reply": "Reply",
+    "@reply": {
+        "description": "reply button"
+    },
+    "typeComment": "Type your comment...",
+    "@typeComment": {
+        "description": "type comment prompt"
+    },
+    "connect": "Connect",
+    "@connect": {
+        "description": "connect button"
+    },
+    "chat": "Chats",
+    "@chat": {
+        "description": "chats section title"
+    },
+    "group": "Groups",
+    "@group": {
+        "description": "groups section title"
+    },
+    "appbarTittle7": "Community",
+    "@appbarTittle7": {
+        "description": "community screen title"
+    },
+    "connectNgo": "Connect with NGOs nearby",
+    "@connectNgo": {
+        "description": "connect with NGOs prompt"
+    },
+    "post": "Post",
+    "@post": {
+        "description": "post button"
+    },
+    "inputTextField": "What's on your mind?\nShare relevant topics with the community",
+    "@inputTextField": {
+        "description": "input text field prompt"
+    },
+    "home": "Home",
+    "@home": {
+        "description": "navigation bar home"
+    },
+    "hungerSpots": "Hunger Spot",
+    "@hungerSpots": {
+        "description": "navigation bar hunger spots"
+    },
+    "community": "Community",
+    "@community": {
+        "description": "navigation bar community"
+    },
+    "menu": "Menu",
+    "@menu": {
+        "description": "navigation bar menu"
+    }
+}

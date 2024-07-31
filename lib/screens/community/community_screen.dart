@@ -1,7 +1,7 @@
+import 'package:annapardaan/screens/community/message_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:annapardaan/common_widgets/custom_searchbar.dart';
-import 'package:annapardaan/screens/community/chat_screen.dart';
 import 'package:annapardaan/screens/community/create_post_screen.dart';
 import 'package:annapardaan/screens/community/widget/ngo_card.dart';
 import 'package:annapardaan/screens/community/widget/postcard.dart';
