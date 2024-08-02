@@ -1,4 +1,6 @@
+import 'package:annapardaan/app/app.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../utils/constants/images.dart';
 import 'package:provider/provider.dart';
 import '../providers/user_provider.dart';
@@ -112,9 +114,47 @@ class CustomNavigationDrawer extends StatelessWidget {
                 leading: Image.asset(TImages.translateImageIcon, height: 23, width: 23, color: Colors.black),
                 title: const Text('Language', style: TextStyle(fontSize: 14), textAlign: TextAlign.right),
                 onTap: () {
-                  // Handle navigation to Language
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text('Select Language'),
+                        content: SingleChildScrollView(
+                          child: ListBody(
+                            children: <Widget>[
+                              GestureDetector(
+                                child: Text('English'),
+                                onTap: () {
+                                  _changeLanguage(context, Locale('en'));
+                                  Navigator.of(context).pop();
+                                },
+                              ),
+                              Padding(padding: EdgeInsets.all(8.0)),
+                              GestureDetector(
+                                child: Text('Hindi'),
+                                onTap: () {
+                                  _changeLanguage(context, Locale('hi'));
+                                  Navigator.of(context).pop();
+                                },
+                              ),
+                              Padding(padding: EdgeInsets.all(8.0)),
+                              GestureDetector(
+                                child: Text('Chinese'),
+                                onTap: () {
+                                  _changeLanguage(context, Locale('zh'));
+                                  Navigator.of(context).pop();
+                                },
+                              ),
+                              // Add other languages here
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                  );
                 },
               ),
+
             ),
             Divider(color: Colors.grey[300]),
             SizedBox(
@@ -178,4 +218,12 @@ class CustomNavigationDrawer extends StatelessWidget {
       ),
     );
   }
+   void _changeLanguage(BuildContext context, Locale locale) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('locale', locale.languageCode);
+    // MyApp(locale: locale.languageCode);
+  }
 }
+
+
+

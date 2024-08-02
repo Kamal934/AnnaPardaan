@@ -252,9 +252,7 @@
         "description": "restaurant name field"
     },
     "organizationName": "Organization Name",
-    "@
-
-organizationName": {
+    "@organizationName": {
         "description": "organization name field"
     },
     "fssaiLicence": "FSSAI Licence",
@@ -543,9 +541,7 @@ organizationName": {
     },
     "onlineSubtitle": "Let's do our bit today to end hunger",
     "@onlineSubtitle": {
-        "
-
-description": "online status subtitle"
+        "description": "online status subtitle"
     },
     "activeOrder": "Active Orders",
     "@activeOrder": {
