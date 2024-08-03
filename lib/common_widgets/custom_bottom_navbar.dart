@@ -27,7 +27,7 @@ class CustomBottomNavBar extends StatelessWidget {
           _buildNavItem(0, TImages.homeImageIcon, TText.home),
           _buildNavItem(1, TImages.hungrSpotImageIcon, TText.hungerSpots),
           if (showFloatingActionButton) const SizedBox(width: 36),
-          _buildNavItem(2, TImages.communityImageIcon, TText.community),
+          _buildNavItem(2, TImages.communityImageIcon, TText.appbarTittle7),
           _buildNavItem(3, TImages.menuImageIcon, TText.menu),
         ],
       ),

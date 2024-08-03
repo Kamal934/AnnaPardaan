@@ -12,6 +12,7 @@ import '../../../common_widgets/custom_button.dart';
 import '../../../common_widgets/custom_choosing_button.dart';
 import '../../../common_widgets/custom_text_field.dart';
 import '../../../utils/constants/text_strings.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class NewDonationScreen extends StatefulWidget {
   final String restaurantId;
@@ -125,6 +126,7 @@ class _NewDonationScreenState extends State<NewDonationScreen> {
         'restaurantId': widget.restaurantId,
       });
 
+      // ignore: use_build_context_synchronously
       Navigator.pop(context);
       toastification.show(
         style: ToastificationStyle.minimal,
@@ -152,7 +154,7 @@ class _NewDonationScreenState extends State<NewDonationScreen> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        title: const Text(TText.appbarTittle3),
+        title:  Text(AppLocalizations.of(context)!.appbarTittle3),
         backgroundColor: Colors.white,
       ),
       body: Padding(
@@ -161,21 +163,21 @@ class _NewDonationScreenState extends State<NewDonationScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                TText.tittle,
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+               Text(
+                AppLocalizations.of(context)!.tittle,
+                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
               ),
               const SizedBox(height: 8),
               CustomTextField(
                 controller: titleController,
-                hintText: TText.donationTittle,
+                hintText: AppLocalizations.of(context)!.donationTittle,
               ),
               const SizedBox(height: 10),
               const Divider(color: Color.fromARGB(255, 239, 238, 245)),
-              const Text(
-                TText.addPhotos,
+               Text(
+                AppLocalizations.of(context)!.addPhotos,
                 style:
-                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                    const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 10),
               ImageCard(
@@ -184,22 +186,22 @@ class _NewDonationScreenState extends State<NewDonationScreen> {
               ),
               const SizedBox(height: 10),
               const Divider(color: Color.fromARGB(255, 239, 238, 245)),
-              const Text(
-                TText.description,
+               Text(
+                AppLocalizations.of(context)!.description,
                 style:
-                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                    const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
               CustomTextField(
                 controller: descriptionController,
-                hintText: TText.description,
+                hintText: AppLocalizations.of(context)!.description,
               ),
               const SizedBox(height: 10),
               const Divider(color: Color.fromARGB(255, 239, 238, 245)),
-              const Text(
-                TText.mealQuantity,
+               Text(
+                AppLocalizations.of(context)!.mealQuantity,
                 style:
-                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                    const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 10),
               CustomSlider(
@@ -216,10 +218,10 @@ class _NewDonationScreenState extends State<NewDonationScreen> {
               ),
               const SizedBox(height: 10),
               const Divider(color: Color.fromARGB(255, 239, 238, 245)),
-              const Text(
-                TText.mealExpiryTime,
+               Text(
+                AppLocalizations.of(context)!.mealExpiryTime,
                 style:
-                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                    const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 10),
               CustomSlider(
@@ -236,10 +238,10 @@ class _NewDonationScreenState extends State<NewDonationScreen> {
               ),
               const SizedBox(height: 10),
               const Divider(color: Color.fromARGB(255, 239, 238, 245)),
-              const Text(
-                TText.mealType,
+               Text(
+                AppLocalizations.of(context)!.mealType,
                 style:
-                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                    const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 10),
               Row(
@@ -268,10 +270,10 @@ class _NewDonationScreenState extends State<NewDonationScreen> {
               ),
               const SizedBox(height: 10),
               const Divider(color: Color.fromARGB(255, 239, 238, 245)),
-              const Text(
-                TText.diet,
+               Text(
+                AppLocalizations.of(context)!.diet,
                 style:
-                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                    const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 10),
               Row(
@@ -302,9 +304,9 @@ class _NewDonationScreenState extends State<NewDonationScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
-                    TText.location,
-                    style: TextStyle(
+                   Text(
+                    AppLocalizations.of(context)!.location,
+                    style: const TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
                     ),
@@ -313,9 +315,9 @@ class _NewDonationScreenState extends State<NewDonationScreen> {
                     onPressed: () {
                       locationController.getCurrentLocation();
                     },
-                    child: const Text(
-                      TText.refresh,
-                      style: TextStyle(color: Colors.red),
+                    child:  Text(
+                      AppLocalizations.of(context)!.refresh,
+                      style: const TextStyle(color: Colors.red),
                     ),
                   ),
                 ],
@@ -356,7 +358,7 @@ class _NewDonationScreenState extends State<NewDonationScreen> {
               const Divider(color: Color.fromARGB(255, 239, 238, 245)),
               const SizedBox(height: 20),
               CustomButton(
-                text: TText.saveDonation,
+                text: AppLocalizations.of(context)!.saveDonation,
                 onPressed: _saveDonationDetails,
               ),
             ],

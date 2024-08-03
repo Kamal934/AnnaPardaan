@@ -2,7 +2,7 @@ class TText {
   // onBoarding Text
   static const String onBoardingTitle1 = 'Be the Light, Serve with Heart';
   static const String onBoardingTitle2 = 'Discover Hungerspots Near You';
-  static const String onBoardingTitle3 = 'Become a Hunger Hero Today';
+  static const String onBoardingTitle3 = 'Become a Hunger HeFro Today';
 
   static const String onBoardingSubTitle1 =
       'Your acts of kindness and service have the power to ignite positive change. Join us on Annapradaan, where your generosity can make a meaningful difference in the lives of those in need.';
@@ -209,7 +209,6 @@ class TText {
   // navigationBar
   static const String home='Home';
   static const String hungerSpots="Hunger Spot";
-  static const String community="Community";
   static const String menu='Menu';
 
 }

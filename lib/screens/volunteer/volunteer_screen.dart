@@ -8,7 +8,7 @@ import 'package:annapardaan/common_widgets/custom_appbar.dart';
 import 'package:annapardaan/common_widgets/custom_section_header.dart';
 import '../../data/custom_card_item_data.dart';
 import '../../common_widgets/badge_earned.dart';
-import '../../utils/constants/text_strings.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'widgets/active_order.dart';
 
 class VolunteerHomeScreen extends StatelessWidget {
@@ -28,8 +28,8 @@ class VolunteerHomeScreen extends StatelessWidget {
       appBar: const CustomAppBar(userName: 'Preet', userImageUrl: 'https://images.pexels.com/photos/783941/pexels-photo-783941.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',),
       body: ListView(
         children: [
-          const Padding(
-            padding: EdgeInsets.only(left: 10.0, right: 10, top: 10),
+           Padding(
+            padding: const EdgeInsets.only(left: 10.0, right: 10, top: 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -38,29 +38,29 @@ class VolunteerHomeScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      TText.online,
-                      style: TextStyle(
+                      AppLocalizations.of(context)!.online,
+                      style: const TextStyle(
                           fontSize: 18,
                           color: Colors.black,
                           fontWeight: FontWeight.bold),
                     ),
                     Text(
-                      TText.onlineSubtitle,
-                      style: TextStyle(
+                      AppLocalizations.of(context)!.onlineSubtitle,
+                      style: const TextStyle(
                           fontSize: 12,
                           color: Colors.grey,
                           fontWeight: FontWeight.normal),
                     ),
                   ],
                 ),
-                CustomSwitch(),
+                const CustomSwitch(),
               ],
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(left: 8.0, right: 8),
             child: SectionHeader(
-              title: TText.activeOrder,
+              title: AppLocalizations.of(context)!.activeOrder,
               onViewAllPressed: () {},
             ),
           ),
@@ -71,7 +71,7 @@ class VolunteerHomeScreen extends StatelessWidget {
           const SizedBox(height: 16),
           const OrderHistory(),
           const SizedBox(height: 16),
-          const Insights(subtitle: TText.insightsVolunteer, isDonorScreen: false,),
+           Insights(subtitle: AppLocalizations.of(context)!.insightsVolunteer, isDonorScreen: false,),
           const SizedBox(height: 16),
           const BadgeEarned(),
           const SizedBox(height: 16),

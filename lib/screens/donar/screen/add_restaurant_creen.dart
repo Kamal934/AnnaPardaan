@@ -14,6 +14,8 @@ import '../../../common_widgets/custom_image_card_picker.dart';
 import '../../../providers/user_provider.dart';
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/text_strings.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class AddRestaurantScreen extends StatefulWidget {
   final bool isDonor;
@@ -154,9 +156,9 @@ class _AddRestaurantScreenState extends State<AddRestaurantScreen> {
           children: [
             Row(
               children: [
-                const Text(
-                  TText.add,
-                  style: TextStyle(
+                 Text(
+                  AppLocalizations.of(context)!.add,
+                  style: const TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
@@ -173,9 +175,9 @@ class _AddRestaurantScreenState extends State<AddRestaurantScreen> {
               ],
             ),
             const SizedBox(height: 10),
-            const Text(
-              TText.tittle,
-              style: TextStyle(
+             Text(
+              AppLocalizations.of(context)!.tittle,
+              style: const TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
               ),
@@ -187,10 +189,10 @@ class _AddRestaurantScreenState extends State<AddRestaurantScreen> {
             ),
             const SizedBox(height: 10),
             const Divider(color: Color.fromARGB(255, 239, 238, 245)),
-            const Text(
-              TText.addPhotos,
+             Text(
+              AppLocalizations.of(context)!.addPhotos,
               style:
-                  TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                  const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 10),
             ImageCard(
@@ -202,9 +204,9 @@ class _AddRestaurantScreenState extends State<AddRestaurantScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  TText.location,
-                  style: TextStyle(
+                 Text(
+                  AppLocalizations.of(context)!.location,
+                  style: const TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
                   ),
@@ -213,9 +215,9 @@ class _AddRestaurantScreenState extends State<AddRestaurantScreen> {
                   onPressed: () {
                     locationController.getCurrentLocation();
                   },
-                  child: const Text(
-                    TText.refresh,
-                    style: TextStyle(color: Colors.red),
+                  child:  Text(
+                    AppLocalizations.of(context)!.refresh,
+                    style: const TextStyle(color: Colors.red),
                   ),
                 ),
               ],

@@ -4,7 +4,7 @@ import 'package:annapardaan/screens/auth/login_screen.dart';
 import 'package:toastification/toastification.dart';
 import '../../common_widgets/custom_text_field.dart';
 import '../../common_widgets/custom_button.dart';
-import '../../utils/constants/text_strings.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ResetPasswordScreen extends StatefulWidget {
   final String email;
@@ -91,22 +91,22 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Center(
+                         Center(
                           child: Text(
-                            TText.resetPassword,
-                            style: TextStyle(
+                            AppLocalizations.of(context)!.resetPassword,
+                            style: const TextStyle(
                                 fontSize: 17, fontWeight: FontWeight.bold),
                           ),
                         ),
                         const SizedBox(height: 10),
-                        const Text(
-                          TText.resetPasswordSubtitle,
-                          style: TextStyle(fontSize: 12, color: Colors.grey),
+                         Text(
+                          AppLocalizations.of(context)!.resetPasswordSubtitle,
+                          style: const TextStyle(fontSize: 12, color: Colors.grey),
                         ),
                         const SizedBox(height: 10),
-                        const Text(
-                          TText.password,
-                          style: TextStyle(
+                         Text(
+                          AppLocalizations.of(context)!.password,
+                          style: const TextStyle(
                             fontSize: 15,
                             fontWeight: FontWeight.bold,
                             color: Colors.black,
@@ -115,13 +115,13 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                         const SizedBox(height: 5),
                         CustomTextField(
                           controller: _passwordController,
-                          hintText: TText.passwordTitle,
+                          hintText: AppLocalizations.of(context)!.passwordTitle,
                           mainDataType: MainDataType.password,
                         ),
                         const SizedBox(height: 10),
-                        const Text(
-                          TText.confirmPassword,
-                          style: TextStyle(
+                         Text(
+                          AppLocalizations.of(context)!.confirmPassword,
+                          style: const TextStyle(
                             fontSize: 15,
                             fontWeight: FontWeight.bold,
                             color: Colors.black,
@@ -130,12 +130,12 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                         const SizedBox(height: 5),
                         CustomTextField(
                           controller: _confirmPasswordController,
-                          hintText: TText.confirmPasswordSubtitle,
+                          hintText: AppLocalizations.of(context)!.confirmPasswordSubtitle,
                           mainDataType: MainDataType.password,
                         ),
                         const SizedBox(height: 10),
                         CustomButton(
-                          text: TText.confirm,
+                          text: AppLocalizations.of(context)!.confirm,
                           onPressed: _resetPassword,
                         ),
                       ],

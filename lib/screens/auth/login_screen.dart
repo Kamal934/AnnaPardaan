@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:annapardaan/screens/recipient/recipient_main.dart';
-import 'package:annapardaan/utils/constants/text_strings.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:annapardaan/utils/constants/images.dart';
@@ -14,6 +13,7 @@ import '../../common_widgets/custom_button.dart';
 import '../../providers/user_provider.dart';
 import '../donar/donar_main.dart';
 import '../volunteer/volunteer_main.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -90,11 +90,7 @@ class _LoginScreenState extends State<LoginScreen> {
         primaryColor: Colors.red,
           title:  Text(
               errorMessage));
-      // ScaffoldMessenger.of(context).showSnackBar(
-      //   SnackBar(
-      //     content: Text(errorMessage),
-      //   ),
-      // );
+
     }
   }
 
@@ -109,26 +105,26 @@ class _LoginScreenState extends State<LoginScreen> {
             children: [
               const SizedBox(height: 40),
               Center(child: Image.asset(TImages.loginImg, height: 200)),
-              const Text(
-                TText.welcome,
-                style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
+               Text(
+                AppLocalizations.of(context)!.welcome,
+                style: const TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
               ),
-              const Text(
-                TText.appname,
-                style: TextStyle(
+               Text(
+                AppLocalizations.of(context)!.appname,
+                style: const TextStyle(
                   fontSize: 19,
                   fontWeight: FontWeight.bold,
                   color: Colors.red,
                 ),
               ),
-              const Text(
-                TText.logintext,
-                style: TextStyle(fontSize: 12, color: Colors.grey),
+               Text(
+                AppLocalizations.of(context)!.logintext,
+                style: const TextStyle(fontSize: 12, color: Colors.grey),
               ),
               const SizedBox(height: 10),
-              const Text(
-                TText.email,
-                style: TextStyle(
+               Text(
+                AppLocalizations.of(context)!.email,
+                style: const TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.bold,
                   color: Colors.black,
@@ -136,13 +132,13 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               CustomTextField(
                 controller: _emailController,
-                hintText: TText.mailTitle,
+                hintText: AppLocalizations.of(context)!.mailTitle,
                 mainDataType: MainDataType.email,
               ),
               const SizedBox(height: 3),
-              const Text(
-                TText.password,
-                style: TextStyle(
+               Text(
+                AppLocalizations.of(context)!.password,
+                style: const TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.bold,
                   color: Colors.black,
@@ -150,7 +146,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               CustomTextField(
                 controller: _passwordController,
-                hintText: TText.passwordTitle,
+                hintText: AppLocalizations.of(context)!.passwordTitle,
                 mainDataType: MainDataType.password,
               ),
               Row(
@@ -165,40 +161,44 @@ class _LoginScreenState extends State<LoginScreen> {
                             builder: (context) => const ForgotPasswordScreen()),
                       );
                     },
-                    child: const Text(
-                      TText.forgetPasswordQuestion,
-                      style: TextStyle(color: Colors.red),
+                    child:  Text(
+                      AppLocalizations.of(context)!.forgetPasswordQuestion,
+                      style: const TextStyle(color: Colors.red),
                     ),
                   ),
                 ],
               ),
               const SizedBox(height: 10),
               CustomButton(
-                text: TText.login,
+                text: AppLocalizations.of(context)!.login,
                 onPressed: _login,
               ),
               const SizedBox(
                 height: 10,
               ),
-               const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  SizedBox(width: 30,),
-                  SizedBox(
+                  const SizedBox(width: 30,),
+                  const SizedBox(
                     width: 70,
                     child:
                          Divider(color: Colors.black,), 
                   ),
-                  SizedBox(width: 5,),
-                  Text(
-                    TText.anotheroption,
-                    style: TextStyle(color: Colors.black),
+                  const SizedBox(width: 5,),
+                  Expanded(
+                    child: Text(
+                      AppLocalizations.of(context)!.anotheroption,
+                      style: const TextStyle(color: Colors.black),
+                      overflow: TextOverflow.fade,
+                      maxLines: 1,
+                    ),
                   ),
-                  SizedBox(width: 5,),
-                  SizedBox(width: 70,
+                  // const SizedBox(width: 5,),
+                  const SizedBox(width: 80,
                     child: Divider(color: Colors.black,), 
                   ),
-                  SizedBox(width: 30,),
+                  const SizedBox(width: 30,),
                 ],
               ),
               const SizedBox(height: 20),
@@ -234,11 +234,13 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const Text(
-                    TText.noAccount,
-                    style: TextStyle(color: Colors.grey),
-                  ),
+                   Text(
+                    AppLocalizations.of(context)!.noAccount,
+                    style: const TextStyle(color: Colors.grey),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,                ),
                   TextButton(
                     onPressed: () {
                       Navigator.pushReplacement(
@@ -246,9 +248,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         MaterialPageRoute(builder: (context) => SignupScreen()),
                       );
                     },
-                    child: const Text(
-                      TText.signUp,
-                      style: TextStyle(
+                    child:  Text(
+                      AppLocalizations.of(context)!.signUp,
+                      style: const TextStyle(
                         color: Colors.red,
                         fontWeight: FontWeight.bold,
                       ),

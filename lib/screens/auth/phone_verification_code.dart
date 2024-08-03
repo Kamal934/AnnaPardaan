@@ -4,8 +4,7 @@ import 'package:annapardaan/screens/auth/otp_verification_screen.dart';
 import 'package:annapardaan/common_widgets/custom_button.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:toastification/toastification.dart';
-
-import '../../utils/constants/text_strings.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class PhoneVerificationScreen extends StatefulWidget {
   const PhoneVerificationScreen({super.key});
@@ -81,14 +80,14 @@ class _PhoneVerificationScreenState extends State<PhoneVerificationScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 20),
-            const Text(
-              TText.phnVerficationtitle,
-              style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
+             Text(
+              AppLocalizations.of(context)!.phnVerficationtitle,
+              style: const TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 10),
-            const Text(
-              TText.phnVerficationSubtitle,
-              style: TextStyle(fontSize: 12, color: Colors.grey),
+             Text(
+              AppLocalizations.of(context)!.phnVerficationSubtitle,
+              style: const TextStyle(fontSize: 12, color: Colors.grey),
               textAlign: TextAlign.start,
             ),
             const SizedBox(height: 25),
@@ -111,7 +110,7 @@ class _PhoneVerificationScreenState extends State<PhoneVerificationScreen> {
         padding: const EdgeInsets.only(left: 17, right: 17, bottom: 8),
         color: Colors.white,
         child: CustomButton(
-          text: TText.continues,
+          text: AppLocalizations.of(context)!.continues,
           onPressed: _verifyPhoneNumber,
         ),
       ),

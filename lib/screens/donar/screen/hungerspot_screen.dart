@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:annapardaan/screens/donar/screen/add_hungerspot_google_map_screen.dart';
 import 'package:annapardaan/screens/donar/screen/donate_to_hungerspot.dart';
 import 'package:annapardaan/utils/constants/colors.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../../utils/constants/images.dart';
-import '../../../utils/constants/text_strings.dart';
 
 class HungerspotScreen extends StatelessWidget {
   const HungerspotScreen({super.key});
@@ -13,14 +12,14 @@ class HungerspotScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Row(
+        title:  Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              TText.appbarTittle2,
-              style: TextStyle(fontWeight: FontWeight.bold),
+              AppLocalizations.of(context)!.appbarTittle2,
+              style: const TextStyle(fontWeight: FontWeight.bold),
             ),
-            Icon(Icons.more_vert_sharp)
+            const Icon(Icons.more_vert_sharp)
           ],
         ),
         centerTitle: true,
@@ -45,7 +44,7 @@ class HungerspotScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 12.0, right: 12, bottom: 12),
               child: SizedBox(
-                height: 140,
+                height: 145,
                 width: double.infinity,
                 child: Card(
                   color: Colors.white,
@@ -57,17 +56,17 @@ class HungerspotScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
-                          TText.donateToHungerSpot,
-                          style: TextStyle(
+                         Text(
+                          AppLocalizations.of(context)!.donateToHungerSpot,
+                          style: const TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
                             color: TColors.black,
                           ),
                         ),
-                        const Text(
-                          TText.donateToHungerSpotSubtittle,
-                          style: TextStyle(
+                         Text(
+                          AppLocalizations.of(context)!.donateToHungerSpotSubtittle,
+                          style: const TextStyle(
                             fontSize: 12,
                             color: TColors.darkGrey,
                           ),
@@ -98,7 +97,7 @@ class HungerspotScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 12, right: 12.0, top: 12),
               child: SizedBox(
-                height: 140,
+                height: 145,
                 width: double.infinity,
                 child: Card(
                   color: Colors.white,
@@ -110,21 +109,25 @@ class HungerspotScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
-                          TText.addToHungerSpot,
-                          style: TextStyle(
+                         Text(
+                          AppLocalizations.of(context)!.addToHungerSpot,
+                          style: const TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
                             color: TColors.black,
                           ),
                         ),
-                        const Text(
-                          TText.addToHungerSpotSubtittle,
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: TColors.darkGrey,
-                          ),
-                        ),
+                         Expanded(
+                           child: Text(
+                            AppLocalizations.of(context)!.addToHungerSpotSubtittle,
+                            style: const TextStyle(
+                              fontSize: 12,
+                              color: TColors.darkGrey,
+                            ),
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                                                   ),
+                         ),
                         const Spacer(),
                         Align(
                           alignment: Alignment.centerRight,

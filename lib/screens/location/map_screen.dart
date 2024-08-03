@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:annapardaan/onboarding/role_selection_screen.dart';
 import 'package:annapardaan/screens/location/confirm_location_screen.dart';
 import 'package:annapardaan/common_widgets/custom_button.dart';
-import 'package:annapardaan/utils/constants/text_strings.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MapScreen extends StatefulWidget {
   final Position? location;
@@ -93,10 +93,10 @@ class _MapScreenState extends State<MapScreen> {
                           children: [
                             const Icon(Icons.location_pin, color: Colors.red),
                             const SizedBox(width: 8),
-                            const Expanded(
+                             Expanded(
                               child: Text(
-                                TText.currentLocation,
-                                style: TextStyle(
+                                AppLocalizations.of(context)!.currentLocation,
+                                style: const TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -111,9 +111,9 @@ class _MapScreenState extends State<MapScreen> {
                                   ),
                                 );
                               },
-                              child: const Text(
-                                TText.change,
-                                style: TextStyle(color: Colors.red),
+                              child:  Text(
+                                AppLocalizations.of(context)!.change,
+                                style: const TextStyle(color: Colors.red),
                               ),
                             ),
                           ],
@@ -127,7 +127,7 @@ class _MapScreenState extends State<MapScreen> {
                         SizedBox(
                           width: double.infinity,
                           child: CustomButton(
-                            text: TText.confirmLocation,
+                            text: AppLocalizations.of(context)!.confirmLocation,
                             onPressed: () {
                               Navigator.pushReplacement(
                                 context,

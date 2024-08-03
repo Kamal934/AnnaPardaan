@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../../../controller/hunger_spot_controller.dart';
 import '../widgets/custom_hungerspot_card.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class DonateToHungerSpotScreen extends StatelessWidget {
   final HungerSpotController hungerSpotController = Get.put(HungerSpotController());
@@ -15,7 +17,7 @@ class DonateToHungerSpotScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(TText.appbarTittle2),
+        title:  Text(AppLocalizations.of(context)!.appbarTittle2),
         elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),

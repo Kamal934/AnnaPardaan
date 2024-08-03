@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:toastification/toastification.dart';
 import '../../common_widgets/custom_text_field.dart';
 import '../../providers/user_provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class EditProfileScreen extends StatelessWidget {
   EditProfileScreen({super.key});
@@ -58,7 +59,7 @@ class EditProfileScreen extends StatelessWidget {
             const SizedBox(height: 10),
             CustomTextField(
               controller: passwordController,
-              hintText: 'Password',
+              hintText: AppLocalizations.of(context)!.password,
               obscureText: true,
               mainDataType: MainDataType.password,
             ),

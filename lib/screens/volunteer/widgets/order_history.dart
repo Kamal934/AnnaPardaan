@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:annapardaan/screens/Insights/leaderboard_screen.dart';
 
 import '../../../common_widgets/custom_section_header.dart';
-import '../../../utils/constants/text_strings.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'orderhistory_item.dart'; 
 
 class OrderHistory extends StatelessWidget {
@@ -16,7 +16,7 @@ class OrderHistory extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SectionHeader(
-            title: TText.orderHistory,
+            title: AppLocalizations.of(context)!.orderHistory,
             onViewAllPressed: () {
               Navigator.push(
                 context,

@@ -4,8 +4,8 @@ import 'package:annapardaan/utils/constants/images.dart';
 import 'package:toastification/toastification.dart';
 import '../../common_widgets/custom_text_field.dart';
 import '../../common_widgets/custom_button.dart';
-import '../../utils/constants/text_strings.dart';
 import 'login_screen.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'verification_code_screen.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
@@ -85,22 +85,22 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Center(
+                           Center(
                             child: Text(
-                              TText.forgetPassword,
-                              style: TextStyle(
+                              AppLocalizations.of(context)!.forgetPassword,
+                              style: const TextStyle(
                                   fontSize: 17, fontWeight: FontWeight.bold),
                             ),
                           ),
                           const SizedBox(height: 10),
-                          const Text(
-                            TText.forgetPassordSubtitle,
-                            style: TextStyle(fontSize: 12, color: Colors.grey),
+                           Text(
+                            AppLocalizations.of(context)!.forgetPassordSubtitle,
+                            style: const TextStyle(fontSize: 12, color: Colors.grey),
                           ),
                           const SizedBox(height: 10),
-                          const Text(
-                            TText.email,
-                            style: TextStyle(
+                           Text(
+                            AppLocalizations.of(context)!.email,
+                            style: const TextStyle(
                               fontSize: 15,
                               fontWeight: FontWeight.bold,
                               color: Colors.black,
@@ -109,14 +109,14 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                           const SizedBox(height: 5),
                           CustomTextField(
                             controller: _emailController,
-                            hintText: TText.emailExample,
+                            hintText: AppLocalizations.of(context)!.emailExample,
                             mainDataType: MainDataType.email,
                           ),
                           const SizedBox(height: 10),
                           _isLoading
                               ? const Center(child: CircularProgressIndicator())
                               : CustomButton(
-                                  text: TText.resetOtp,
+                                  text: AppLocalizations.of(context)!.resetOtp,
                                   onPressed: _resetPassword,
                                 ),
                           const SizedBox(height: 5),
@@ -129,9 +129,9 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                                       builder: (context) => const LoginScreen()),
                                 );
                               },
-                              child: const Text(
-                                TText.backToLogin,
-                                style: TextStyle(
+                              child:  Text(
+                                AppLocalizations.of(context)!.backToLogin,
+                                style: const TextStyle(
                                   color: Colors.red,
                                   fontWeight: FontWeight.bold,
                                 ),

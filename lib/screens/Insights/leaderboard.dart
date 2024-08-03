@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../models/custom_card_item_model.dart';
 import '../../common_widgets/custom_card_item.dart';
 import '../../common_widgets/custom_section_header.dart';
-import '../../utils/constants/text_strings.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'; 
 import 'leaderboard_screen.dart';
 
 
@@ -25,7 +25,7 @@ class LeaderBoard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SectionHeader(
-              title: TText.leaderBoard,
+              title: AppLocalizations.of(context)!.leaderBoard,
               icon: Icons.arrow_forward_ios_rounded,
               onIconPressed: () {
                 Navigator.push(

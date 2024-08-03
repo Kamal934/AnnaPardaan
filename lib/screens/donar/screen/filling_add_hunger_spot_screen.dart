@@ -205,8 +205,7 @@ import '../../../common_widgets/custom_button.dart';
 import '../../../common_widgets/custom_choosing_button.dart';
 import '../../../common_widgets/custom_text_field.dart';
 import 'package:annapardaan/common_widgets/custom_image_card_picker.dart';
-
-import '../../../utils/constants/text_strings.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class FillingAddHungerPointsScreen extends StatefulWidget {
   final HungerSpot hungerSpot;
@@ -236,7 +235,7 @@ class _FillingAddHungerPointsScreenState
     hungerSpotNameController.text = widget.hungerSpot.name;
     addressController.text = widget.hungerSpot.address;
     population = widget.hungerSpot.population;
-    imageUrls = widget.hungerSpot.imageUrls ?? [];
+    imageUrls = widget.hungerSpot.imageUrls;
     _selectedType = widget.hungerSpot.type;
   }
 
@@ -353,12 +352,12 @@ class _FillingAddHungerPointsScreenState
             const SizedBox(height: 30.0),
             CustomTextField(
               controller: hungerSpotNameController,
-              hintText: TText.hungerSpotName,
+              hintText: AppLocalizations.of(context)!.hungerSpotName,
             ),
             const SizedBox(height: 15.0),
-            const Text(
-              TText.hungerSpotType,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+             Text(
+              AppLocalizations.of(context)!.hungerSpotType,
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
             ),
             const SizedBox(height: 10.0),
             Row(
@@ -385,9 +384,9 @@ class _FillingAddHungerPointsScreenState
               ],
             ),
             const SizedBox(height: 10.0),
-            const Text(
-              TText.addPhotos,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+             Text(
+              AppLocalizations.of(context)!.addPhotos,
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
             ),
             const SizedBox(height: 10.0),
             ImageCard(
@@ -395,9 +394,9 @@ class _FillingAddHungerPointsScreenState
               imageFiles: _images,
             ),
             const SizedBox(height: 16.0),
-            const Text(
-              TText.population,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+             Text(
+              AppLocalizations.of(context)!.population,
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
             ),
             const SizedBox(height: 10.0),
             Padding(
@@ -432,16 +431,16 @@ class _FillingAddHungerPointsScreenState
                   onChanged: (value) {},
                   activeColor: TColors.primaryLight,
                 ),
-                const Expanded(
+                 Expanded(
                   child: Text(
-                    TText.declaration,
-                    style: TextStyle(fontSize: 12),
+                    AppLocalizations.of(context)!.declaration,
+                    style: const TextStyle(fontSize: 12),
                   ),
                 ),
               ],
             ),
             CustomButton(
-              text: TText.addHungerSpot,
+              text: AppLocalizations.of(context)!.addHungerSpot,
               onPressed: _saveHungerSpotDetails,
             ),
             const SizedBox(height: 16.0),

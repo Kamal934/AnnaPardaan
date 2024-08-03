@@ -6,7 +6,7 @@ import 'package:annapardaan/common_widgets/custom_choosing_button.dart';
 import 'package:annapardaan/common_widgets/food_availability_card_builder.dart';
 import 'package:provider/provider.dart';
 import '../../providers/user_provider.dart';
-import '../../utils/constants/text_strings.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class RecipientHomeScreen extends StatefulWidget {
   const RecipientHomeScreen({super.key});
@@ -83,11 +83,12 @@ class _RecipientHomeScreenState extends State<RecipientHomeScreen> {
 
           return Padding(
             padding: const EdgeInsets.all(8.0),
-            child: ListView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  TText.insight,
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                Text(
+                  AppLocalizations.of(context)!.insight,
+                  style:const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 _buildInsights(),
                 const SizedBox(height: 16),
@@ -95,40 +96,44 @@ class _RecipientHomeScreenState extends State<RecipientHomeScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    CustomChoosingButton(
-                      text: 'Available Foods',
-                      isSelected: _selectedIndex == 0,
-                      onPressed: () => _onButtonPressed(0),
-                      width: 165,
+                    Expanded(
+                      child: CustomChoosingButton(
+                        text: 'Available Foods',
+                        isSelected: _selectedIndex == 0,
+                        onPressed: () => _onButtonPressed(0),
+                      ),
                     ),
-                    CustomChoosingButton(
-                      text: 'Events',
-                      isSelected: _selectedIndex == 1,
-                      onPressed: () => _onButtonPressed(1),
-                      width: 165,
+                    const SizedBox(width: 8), // Add spacing between buttons
+                    Expanded(
+                      child: CustomChoosingButton(
+                        text: 'Events',
+                        isSelected: _selectedIndex == 1,
+                        onPressed: () => _onButtonPressed(1),
+                      ),
                     ),
                   ],
                 ),
-                ListView.builder(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: donations.length,
-                  itemBuilder: (context, index) {
-                    final donation = donations[index];
-                    final parentRef = donation.reference.parent.parent;
-                    final restaurantId = parentRef?.id;
-                    final restaurant = restaurantId != null ? restaurants[restaurantId] : null;
+                const SizedBox(height: 16),
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: donations.length,
+                    itemBuilder: (context, index) {
+                      final donation = donations[index];
+                      final parentRef = donation.reference.parent.parent;
+                      final restaurantId = parentRef?.id;
+                      final restaurant = restaurantId != null ? restaurants[restaurantId] : null;
 
-                    if (restaurant != null) {
-                      return FoodAvailabilityCardBuilder.buildFoodAvailabilityCard(
-                          context, donation, restaurant);
-                    } else {
-                      if (kDebugMode) {
-                        print('Restaurant not found for donation: ${donation.id}');
+                      if (restaurant != null) {
+                        return FoodAvailabilityCardBuilder.buildFoodAvailabilityCard(
+                            context, donation, restaurant);
+                      } else {
+                        if (kDebugMode) {
+                          print('Restaurant not found for donation: ${donation.id}');
+                        }
+                        return const SizedBox.shrink();
                       }
-                      return const SizedBox.shrink();
-                    }
-                  },
+                    },
+                  ),
                 ),
               ],
             ),
@@ -142,39 +147,35 @@ class _RecipientHomeScreenState extends State<RecipientHomeScreen> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        _buildInsightCard('40', TText.overallRequest),
-        _buildInsightCard('15', TText.donorConnected),
+        Expanded(child: _buildInsightCard('40', AppLocalizations.of(context)!.overallRequest)),
+        const SizedBox(width: 8), // Add spacing between insight cards
+        Expanded(child: _buildInsightCard('15', AppLocalizations.of(context)!.donorConnected)),
       ],
     );
   }
 
   Widget _buildInsightCard(String count, String label) {
-    return SizedBox(
-      width: 160,
-      height: 100,
-      child: Card(
-        color: Colors.white,
-        elevation: 4,
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(count, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-                  Text(label, style: const TextStyle(fontSize: 12)),
-                ],
-              ),
-              const Padding(
-                padding: EdgeInsets.only(left: 30.0),
-                child: Icon(
-                  Icons.family_restroom_rounded,
-                  size: 40,
-                ),
-              ),
-            ],
-          ),
+    return Card(
+      color: Colors.white,
+      elevation: 4,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(count, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                Text(label, style: const TextStyle(fontSize: 12)),
+              ],
+            ),
+            const Spacer(),
+            Icon(
+              Icons.family_restroom_rounded,
+              size: 40,
+              color: Theme.of(context).primaryColor,
+            ),
+          ],
         ),
       ),
     );
@@ -184,7 +185,7 @@ class _RecipientHomeScreenState extends State<RecipientHomeScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(TText.topDonor, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+        Text(AppLocalizations.of(context)!.topDonor, style:  const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
         const SizedBox(height: 8),
         SizedBox(
           height: 95,
@@ -207,14 +208,15 @@ class _RecipientHomeScreenState extends State<RecipientHomeScreen> {
 
   Widget _buildDonorAvatar(String imagePath, String label) {
     return Padding(
-      padding: const EdgeInsets.only(left: 8.0, right: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: Column(
         children: [
           CircleAvatar(
             backgroundImage: NetworkImage(imagePath),
             radius: 30,
           ),
-          Text(label, style: const TextStyle(fontSize: 12)),
+          const SizedBox(height: 4),
+          Text(label, style:  const TextStyle(fontSize: 12)),
         ],
       ),
     );

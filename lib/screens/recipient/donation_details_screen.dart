@@ -9,6 +9,7 @@ import 'package:skeletonizer/skeletonizer.dart';
 import '../../common_widgets/custom_choosing_button.dart';
 import '../../utils/constants/text_strings.dart';
 import '../donar/widgets/custom_slider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class DonationDetailsScreen extends StatefulWidget {
   final String donationId;
@@ -63,9 +64,9 @@ class _DonationDetailsScreenState extends State<DonationDetailsScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: const Text(
-          TText.appbarTittle6,
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        title:  Text(
+          AppLocalizations.of(context)!.appbarTittle6,
+          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
         leading: IconButton(
@@ -195,9 +196,9 @@ class _DonationDetailsScreenState extends State<DonationDetailsScreen> {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  const Text(
-                    TText.photos,
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                   Text(
+                    AppLocalizations.of(context)!.photos,
+                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 10),
                   if (donationImages.isNotEmpty)
@@ -256,9 +257,9 @@ class _DonationDetailsScreenState extends State<DonationDetailsScreen> {
                       style: TextStyle(color: Colors.grey),
                     ),
                   const SizedBox(height: 16),
-                  const Text(
-                    TText.dietType,
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                   Text(
+                    AppLocalizations.of(context)!.dietType,
+                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 8),
                   Row(
@@ -286,9 +287,9 @@ class _DonationDetailsScreenState extends State<DonationDetailsScreen> {
                     ],
                   ),
                   const SizedBox(height: 16),
-                  const Text(
-                    TText.mealQuantity,
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                   Text(
+                    AppLocalizations.of(context)!.mealQuantity,
+                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 16),
                   CustomSlider(
@@ -302,9 +303,9 @@ class _DonationDetailsScreenState extends State<DonationDetailsScreen> {
                     divisions: 100,
                   ),
                   const SizedBox(height: 16),
-                  const Text(
-                    TText.instruction,
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                   Text(
+                    AppLocalizations.of(context)!.instruction,
+                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 8),
                   Container(
@@ -319,9 +320,9 @@ class _DonationDetailsScreenState extends State<DonationDetailsScreen> {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  const Text(
-                    TText.location,
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                   Text(
+                    AppLocalizations.of(context)!.location,
+                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 8),
                   Card(
@@ -350,7 +351,7 @@ class _DonationDetailsScreenState extends State<DonationDetailsScreen> {
                           checkColor: TColors.primaryLight,
                           value: false,
                           onChanged: (value) {}),
-                      const Text(TText.requestPartner),
+                       Text(AppLocalizations.of(context)!.requestPartner),
                     ],
                   ),
                   const SizedBox(height: 16),
@@ -370,9 +371,9 @@ class _DonationDetailsScreenState extends State<DonationDetailsScreen> {
                             ),
                           ),
                           onPressed: () {},
-                          child: const Text(
-                            TText.message,
-                            style: TextStyle(
+                          child:  Text(
+                            AppLocalizations.of(context)!.message,
+                            style: const TextStyle(
                                 color: Colors.grey,
                                 fontWeight: FontWeight.bold),
                           ),
@@ -380,7 +381,7 @@ class _DonationDetailsScreenState extends State<DonationDetailsScreen> {
                       ),
                       CustomButton(
                         onPressed: () {},
-                        text: TText.requestPost,
+                        text: AppLocalizations.of(context)!.requestPost,
                         width: 160,
                       ),
                     ],

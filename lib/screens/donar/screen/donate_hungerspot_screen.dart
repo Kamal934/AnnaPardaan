@@ -3,11 +3,12 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:annapardaan/screens/location/calc_distance.dart';
 import 'package:annapardaan/common_widgets/custom_button.dart';
-import 'package:annapardaan/utils/constants/text_strings.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:validators/validators.dart'; // Add this import for URL validation
+import 'package:validators/validators.dart';
 import '../../../models/hunger_spot.dart';
 import '../../location/address_loc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class DonateHungerspotScreen extends StatefulWidget {
   final HungerSpot hungerSpot;
@@ -31,7 +32,7 @@ class _DonateHungerspotScreenState extends State<DonateHungerspotScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text(TText.appbarTittle1),
+        title:  Text(AppLocalizations.of(context)!.appbarTittle1),
         elevation: 0,
         backgroundColor: Colors.white,
         scrolledUnderElevation: 0,
@@ -93,17 +94,17 @@ class _DonateHungerspotScreenState extends State<DonateHungerspotScreen> {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          const Row(
+                           Row(
                             children: [
-                              Icon(
+                              const Icon(
                                 Icons.verified,
                                 color: Colors.blue,
                                 size: 16,
                               ),
-                              SizedBox(width: 5),
+                              const SizedBox(width: 5),
                               Text(
-                                TText.verified,
-                                style: TextStyle(color: Colors.blue),
+                                AppLocalizations.of(context)!.verified,
+                                style: const TextStyle(color: Colors.blue),
                               ),
                             ],
                           ),
@@ -135,9 +136,9 @@ class _DonateHungerspotScreenState extends State<DonateHungerspotScreen> {
                 ),
               ),
               const SizedBox(height: 16),
-              const Text(
-                TText.photos,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+               Text(
+                AppLocalizations.of(context)!.photos,
+                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 10),
               if (widget.hungerSpot.imageUrls.isNotEmpty)
@@ -198,9 +199,9 @@ class _DonateHungerspotScreenState extends State<DonateHungerspotScreen> {
                   style: TextStyle(color: Colors.grey),
                 ),
               const SizedBox(height: 16),
-              const Text(
-                TText.location,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+               Text(
+                AppLocalizations.of(context)!.location,
+                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
               Row(
@@ -245,7 +246,7 @@ class _DonateHungerspotScreenState extends State<DonateHungerspotScreen> {
       ),
       bottomSheet: Padding(
         padding: const EdgeInsets.only(left: 16.0, right: 16, bottom: 10),
-        child: CustomButton(text: TText.donate, onPressed: () {}),
+        child: CustomButton(text: AppLocalizations.of(context)!.donate, onPressed: () {}),
       ),
     );
   }

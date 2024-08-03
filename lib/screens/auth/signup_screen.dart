@@ -4,8 +4,8 @@ import '../../common_widgets/custom_button.dart';
 import '../../common_widgets/custom_text_field.dart';
 import '../../providers/user_provider.dart';
 import '../../utils/constants/images.dart';
-import '../../utils/constants/text_strings.dart';
 import 'login_screen.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SignupScreen extends StatelessWidget {
   SignupScreen({super.key});
@@ -27,53 +27,53 @@ class SignupScreen extends StatelessWidget {
               children: [
                 const SizedBox(height: 40),
                 Center(child: Image.asset(TImages.signupImg, height: 200)),
-                const Text(
-                  TText.signupTitle,
-                  style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
+                 Text(
+                  AppLocalizations.of(context)!.signupTitle,
+                  style: const TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
                 ),
-                const Text(
-                  TText.appname,
-                  style: TextStyle(
+                 Text(
+                  AppLocalizations.of(context)!.appname,
+                  style: const TextStyle(
                     fontSize: 19,
                     fontWeight: FontWeight.bold,
                     color: Colors.red,
                   ),
                 ),
-                const Text(
-                  TText.signupSubtitle,
-                  style: TextStyle(fontSize: 12, color: Colors.grey),
+                 Text(
+                  AppLocalizations.of(context)!.signupSubtitle,
+                  style: const TextStyle(fontSize: 12, color: Colors.grey),
                 ),
                 const SizedBox(height: 10),
 
                 CustomTextField(
                   controller: _fullNameController,
-                  hintText: TText.nameText,
+                  hintText: AppLocalizations.of(context)!.nameText,
                   mainDataType: MainDataType.fullName,
                 ),
                 const SizedBox(height: 10),
                 
                 CustomTextField(
                   controller: _emailController,
-                  hintText: TText.mailTitle,
+                  hintText: AppLocalizations.of(context)!.mailTitle,
                   mainDataType: MainDataType.email,
                 ),
                 const SizedBox(height: 10),
             
                 CustomTextField(
                   controller: _passwordController,
-                  hintText:TText.passwordTitle,
+                  hintText:AppLocalizations.of(context)!.passwordTitle,
                   mainDataType: MainDataType.password,
                 ),
                 const SizedBox(height: 10),
              
                 CustomTextField(
                   controller: _confirmPasswordController,
-                  hintText: TText.confirmPassword,
+                  hintText: AppLocalizations.of(context)!.confirmPassword,
                   mainDataType: MainDataType.password,
                 ),
                 const SizedBox(height: 15),
                 CustomButton(
-                  text: TText.signUp,
+                  text: AppLocalizations.of(context)!.signUp,
                   onPressed: () {
                     userProvider.signup(
                       context,
@@ -84,25 +84,25 @@ class SignupScreen extends StatelessWidget {
                   },
                 ),
                 const SizedBox(height: 20),
-                const Row(
+                 Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  SizedBox(width: 30,),
-                  SizedBox(
+                  const SizedBox(width: 30,),
+                  const SizedBox(
                     width: 70,
                     child:
                          Divider(color: Colors.black,), 
                   ),
-                  SizedBox(width: 5,),
+                  const SizedBox(width: 5,),
                   Text(
-                    TText.anotheroption,
-                    style: TextStyle(color: Colors.black),
+                    AppLocalizations.of(context)!.anotheroption,
+                    style: const TextStyle(color: Colors.black),
                   ),
-                  SizedBox(width: 5,),
-                  SizedBox(width: 60,
+                  const SizedBox(width: 5,),
+                  const SizedBox(width: 60,
                     child: Divider(color: Colors.black,), 
                   ),
-                  SizedBox(width: 30,)
+                  const SizedBox(width: 30,)
                 ],
               ),
                 const SizedBox(height: 15),
@@ -139,9 +139,9 @@ class SignupScreen extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
-                      TText.havingAccount,
-                      style: TextStyle(color: Colors.grey),
+                     Text(
+                      AppLocalizations.of(context)!.havingAccount,
+                      style: const TextStyle(color: Colors.grey),
                     ),
                     TextButton(
                       onPressed: () {
@@ -150,9 +150,9 @@ class SignupScreen extends StatelessWidget {
                           MaterialPageRoute(builder: (context) => const LoginScreen()),
                         );
                       },
-                      child: const Text(
-                        TText.login,
-                        style: TextStyle(
+                      child:  Text(
+                        AppLocalizations.of(context)!.login,
+                        style: const TextStyle(
                           color: Colors.red,
                           fontWeight: FontWeight.bold,
                         ),

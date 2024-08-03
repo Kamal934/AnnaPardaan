@@ -1,10 +1,11 @@
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:provider/provider.dart';
-import 'package:flutter/material.dart';
 import 'package:toastification/toastification.dart';
-import 'providers/user_provider.dart';
 import 'app/app.dart';
+import 'providers/local_provider.dart';
+import 'providers/user_provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -12,12 +13,18 @@ Future<void> main() async {
 
   final prefs = await SharedPreferences.getInstance();
   final showOnboarding = prefs.getBool('onboardingComplete') ?? false;
+
   runApp(
-    ChangeNotifierProvider<UserProvider>(
-      create: (_) => UserProvider(),
-      child: ToastificationWrapper( // Wrap with ToastificationWrapper
-        child: MyApp(showOnboarding: showOnboarding),
-      ),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider<UserProvider>(
+          create: (_) => UserProvider(),
+        ),
+        ChangeNotifierProvider<LocaleProvider>(
+          create: (_) => LocaleProvider()..loadLocale(),
+        ),
+      ],
+      child: ToastificationWrapper(child: MyApp(showOnboarding: showOnboarding)),
     ),
   );
 }

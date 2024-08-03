@@ -1,10 +1,10 @@
 import 'package:annapardaan/common_widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:annapardaan/screens/profile/edit_profile_screen.dart';
-import 'package:annapardaan/utils/constants/text_strings.dart';
 import 'package:provider/provider.dart';
 import '../../providers/user_provider.dart';
 import '../../utils/constants/images.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -18,8 +18,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(TText.appbarTittle5,
-            style: TextStyle(fontWeight: FontWeight.bold)),
+        title:  Text(AppLocalizations.of(context)!.appbarTittle5,
+            style: const TextStyle(fontWeight: FontWeight.bold)),
         centerTitle: true,
         backgroundColor: Colors.white,
         elevation: 0,
@@ -111,17 +111,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ),
                 const SizedBox(height: 25.0),
-                const Text(
-                  TText.insight,
-                  style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+                 Text(
+                  AppLocalizations.of(context)!.insight,
+                  style: const TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 10.0),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    _buildInsightCard('250', TText.totalDonation,
+                    _buildInsightCard('250', AppLocalizations.of(context)!.totalDonation,
                         TImages.totalDonationImageIcon),
-                    _buildInsightCard('2.5k', TText.pointEarned,
+                    _buildInsightCard('2.5k', AppLocalizations.of(context)!.pointEarned,
                         TImages.pointEarnedImageIcon),
                   ],
                 ),
@@ -163,8 +163,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 const SizedBox(height: 10.0),
                 _buildProfileOption(
                   icon: Icons.person,
-                  title: TText.profileInfo,
-                  subtitle: TText.profileInfoSubtitle,
+                  title: AppLocalizations.of(context)!.profileInfo,
+                  subtitle: AppLocalizations.of(context)!.profileInfoSubtitle,
                   onTap: () {
                     Navigator.push(
                         context,
@@ -174,14 +174,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
                 _buildProfileOption(
                   icon: Icons.location_pin,
-                  title: TText.location,
-                  subtitle: TText.locationSubtitle,
+                  title: AppLocalizations.of(context)!.location,
+                  subtitle: AppLocalizations.of(context)!.locationSubtitle,
                   onTap: () {},
                 ),
                 _buildProfileOption(
                   icon: Icons.notifications_active,
-                  title: TText.pushNotification,
-                  subtitle: TText.pushNotificationSubtitle,
+                  title: AppLocalizations.of(context)!.pushNotification,
+                  subtitle: AppLocalizations.of(context)!.pushNotificationSubtitle,
                   trailing: Switch(
                     activeColor: Colors.red,
                     value: true,
@@ -191,14 +191,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
                 _buildProfileOption(
                   icon: Icons.help_center_rounded,
-                  title: TText.faq,
-                  subtitle: TText.faqSubtitle,
+                  title: AppLocalizations.of(context)!.faq,
+                  subtitle: AppLocalizations.of(context)!.faqSubtitle,
                   onTap: () {},
                 ),
                 _buildProfileOption(
                   icon: Icons.logout_outlined,
-                  title: TText.logout,
-                  subtitle: TText.logoutSubtitle,
+                  title: AppLocalizations.of(context)!.logout,
+                  subtitle: AppLocalizations.of(context)!.logoutSubtitle,
                   onTap: () => _showLogoutDialog(context),
                 ),
               ],
@@ -213,7 +213,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Container(
       width: 150.0,
       padding:
-          const EdgeInsets.only(left: 10.0, right: 10, top: 10, bottom: 10),
+          const EdgeInsets.only(left: 5.0, right: 5, top: 10, bottom: 10),
       decoration: BoxDecoration(
         color: const Color.fromARGB(255, 239, 238, 245),
         borderRadius: BorderRadius.circular(8.0),
@@ -221,7 +221,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       child: Column(
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Image.asset(
                 image,
@@ -303,7 +303,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
           actions: [
             CustomButton(
-              text: TText.logout,
+              text: AppLocalizations.of(context)!.logout,
               onPressed: () async {
                 await Provider.of<UserProvider>(context, listen: false)
                     .logout(context);

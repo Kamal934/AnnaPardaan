@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:annapardaan/utils/constants/text_strings.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:get/get.dart';
 import 'package:annapardaan/common_widgets/custom_button.dart';
 import '../../controller/location_service.dart';
@@ -84,7 +84,7 @@ class _ConfirmLocationScreenState extends State<ConfirmLocationScreen> {
         child: Padding(
           padding: const EdgeInsets.only(left: 16.0, right: 16, bottom: 10),
           child: CustomButton(
-            text: TText.confirm,
+            text: AppLocalizations.of(context)!.confirm,
             onPressed: () {
               if (kDebugMode) {
                 print('Entered location: ${_locationController.text}');

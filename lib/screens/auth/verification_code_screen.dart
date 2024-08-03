@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:annapardaan/utils/constants/images.dart';
 import '../../common_widgets/custom_button.dart';
 import '../../common_widgets/otp_input_field.dart';
-import '../../utils/constants/text_strings.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class VerificationCodeScreen extends StatefulWidget {
   final String email;
@@ -72,17 +72,17 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
               ),
             ),
             const SizedBox(height: 10),
-            const Text(
-              TText.verificationCode,
-              style: TextStyle(
+             Text(
+              AppLocalizations.of(context)!.verificationCode,
+              style: const TextStyle(
                 fontSize: 19,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const Text(
-              TText.verificationCodeSubtitle,
+             Text(
+              AppLocalizations.of(context)!.verificationCodeSubtitle,
               textAlign: TextAlign.start,
-              style: TextStyle(fontSize: 13, color: Colors.grey),
+              style: const TextStyle(fontSize: 13, color: Colors.grey),
             ),
             const SizedBox(height: 16),
             OtpInputField(
@@ -90,7 +90,7 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
             ),
             const SizedBox(height: 32),
             CustomButton(
-              text: TText.confirm,
+              text: AppLocalizations.of(context)!.confirm,
               onPressed: () {
                 // Handle OTP verification
               },
@@ -98,9 +98,9 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
             Center(
               child: TextButton(
                 onPressed: _seconds == 0 ? _resendCode : null,
-                child: const Text(
-                  TText.noverificationCodeRecieve,
-                  style: TextStyle(color: Colors.red),
+                child:  Text(
+                  AppLocalizations.of(context)!.noverificationCodeRecieve,
+                  style: const TextStyle(color: Colors.red),
                 ),
               ),
             ),

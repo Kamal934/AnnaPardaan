@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../controller/hunger_spot_controller.dart';
 import '../../../models/hunger_spot.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AddHungerSpotScreen extends StatefulWidget {
   const AddHungerSpotScreen({super.key});
@@ -131,7 +132,7 @@ class _AddHungerSpotScreenState extends State<AddHungerSpotScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(TText.addHungerPoint),
+        title:  Text(AppLocalizations.of(context)!.addHungerPoint),
         elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
@@ -178,7 +179,7 @@ class _AddHungerSpotScreenState extends State<AddHungerSpotScreen> {
                         markerId: MarkerId(spot.id),
                         position: LatLng(spot.latitude, spot.longitude),
                         infoWindow: InfoWindow(
-                          title: TText.hungerSpot,
+                          title: AppLocalizations.of(context)!.hungerSpot,
                           // snippet: 'Lat: ${spot.latitude}, Lng: ${spot.longitude}',
                           onTap: () {
                             _displayBottomSheet(context, spot);

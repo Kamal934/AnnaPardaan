@@ -6,6 +6,7 @@ import '../../common_widgets/custom_button.dart';
 import '../../common_widgets/otp_input_field.dart';
 import '../../utils/constants/text_strings.dart';
 import '../location/confirm_location_screen.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class OTPVerificationScreen extends StatefulWidget {
   final String verificationId;
@@ -133,15 +134,15 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const Text(
-                    TText.noOtpRecieve,
-                    style: TextStyle(color: Colors.black),
+                   Text(
+                    AppLocalizations.of(context)!.noOtpRecieve,
+                    style: const TextStyle(color: Colors.black),
                   ),
                   TextButton(
                     onPressed: _resendOTP,
-                    child: const Text(
-                      TText.resend,
-                      style: TextStyle(color: Colors.red),
+                    child:  Text(
+                      AppLocalizations.of(context)!.resend,
+                      style: const TextStyle(color: Colors.red),
                     ),
                   ),
                 ],

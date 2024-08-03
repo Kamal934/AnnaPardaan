@@ -4,7 +4,7 @@ import 'package:annapardaan/screens/donar/screen/donation_home_screen.dart';
 import 'package:toastification/toastification.dart';
 import '../../common_widgets/custom_text_field.dart';
 import '../../common_widgets/custom_button.dart';
-import '../../utils/constants/text_strings.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class PasswordScreen extends StatefulWidget {
   final String username;
@@ -69,7 +69,7 @@ class _PasswordScreenState extends State<PasswordScreen> {
               children: [
                 CustomTextField(
                   controller: _passwordController,
-                  hintText: TText.password,
+                  hintText: AppLocalizations.of(context)!.password,
                   obscureText: true,
                   mainDataType: null,
                 ),
@@ -82,7 +82,7 @@ class _PasswordScreenState extends State<PasswordScreen> {
                         // Handle get OTP action
                       },
                       child: Text(
-                        TText.getOtp,
+                        AppLocalizations.of(context)!.getOtp,
                         style: TextStyle(
                           color: Theme.of(context).colorScheme.primary,
                           fontWeight: FontWeight.bold,
@@ -90,7 +90,7 @@ class _PasswordScreenState extends State<PasswordScreen> {
                       ),
                     ),
                     CustomButton(
-                      text: TText.continues,
+                      text: AppLocalizations.of(context)!.continues,
                       onPressed: _login,
                     ),
                   ],

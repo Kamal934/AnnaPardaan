@@ -7,6 +7,7 @@ import '../screens/donar/donar_main.dart';
 import '../screens/recipient/recipient_main.dart';
 import '../screens/volunteer/volunteer_main.dart';
 import '../utils/constants/text_strings.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class RoleSelectionScreen extends StatelessWidget {
   const RoleSelectionScreen({super.key});
@@ -21,15 +22,15 @@ class RoleSelectionScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const SizedBox(height: 40),
-            const Text(
-              TText.mainTitle,
-              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+             Text(
+              AppLocalizations.of(context)!.mainTitle,
+              style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 30),
-            const Text(
-              TText.subtitle,
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.red),
+             Text(
+              AppLocalizations.of(context)!.subtitle,
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.red),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 30),
@@ -38,8 +39,8 @@ class RoleSelectionScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 RoleOption(
-                  role: TText.donor,
-                  description: TText.donorDescription,
+                  role: AppLocalizations.of(context)!.donor,
+                  description: AppLocalizations.of(context)!.donorDescription,
                   imagePath:TImages.roleOptionImage1,
                   isSelected: context.watch<UserProvider>().currentUser.role == TText.donor,
                   onTap: () {
@@ -51,8 +52,8 @@ class RoleSelectionScreen extends StatelessWidget {
                   },
                 ),
                 RoleOption(
-                  role: TText.recipient,
-                  description:TText.recipientDescription,
+                  role: AppLocalizations.of(context)!.recipient,
+                  description:AppLocalizations.of(context)!.recipientDescription,
                   imagePath:TImages.roleOptionImage2,
                   isSelected: context.watch<UserProvider>().currentUser.role == TText.recipient,
                   onTap: () {
@@ -67,8 +68,8 @@ class RoleSelectionScreen extends StatelessWidget {
             ),
             Center(
               child: RoleOption(
-                role: TText.volunteer,
-                description:TText.volunteerDescription,
+                role: AppLocalizations.of(context)!.volunteer,
+                description:AppLocalizations.of(context)!.volunteerDescription,
                 imagePath: TImages.roleOptionImage3,
                 isSelected: context.watch<UserProvider>().currentUser.role == TText.volunteer,
                 onTap: () {

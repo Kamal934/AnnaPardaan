@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../utils/constants/images.dart';
 import '../../utils/constants/text_strings.dart';
 
@@ -107,21 +107,21 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                                   borderRadius: BorderRadius.all(Radius.circular(10)),
                                   color: Colors.red,
                                 ),
-                               child: const TabBar(
-                                  indicator: BoxDecoration(
+                               child:  TabBar(
+                                  indicator: const BoxDecoration(
                                    color: Colors.white,
                                    borderRadius: BorderRadius.all(Radius.circular(10))
                                  ),
-                                 indicatorPadding:EdgeInsets.only(top: 2,bottom: 2,left: 2,right: 2),
+                                 indicatorPadding:const EdgeInsets.only(top: 2,bottom: 2,left: 2,right: 2),
                                   indicatorSize: TabBarIndicatorSize.tab,
                                   indicatorWeight: 0,
                                   dividerColor: Colors.transparent,
                                   labelColor: Colors.red,
                                   unselectedLabelColor: Colors.white,
                                tabs: [
-                                   TabItem(title: TText.all, count: 10),
-                                   TabItem(title: TText.thisWeek, count: 5),
-                                   TabItem(title: TText.friends, count: 2),
+                                   TabItem(title: AppLocalizations.of(context)!.all, count: 10),
+                                   TabItem(title: AppLocalizations.of(context)!.thisWeek, count: 5),
+                                   TabItem(title: AppLocalizations.of(context)!.friends, count: 2),
                                  ],
                                ),
                              ),
@@ -130,9 +130,9 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                         Expanded(
                           child: TabBarView(
                             children: [
-                              SingleChildScrollView(child: _buildOtherUsers(TText.all)),
-                              SingleChildScrollView(child: _buildOtherUsers(TText.thisWeek)),
-                              SingleChildScrollView(child: _buildOtherUsers(TText.friends)),
+                              SingleChildScrollView(child: _buildOtherUsers(AppLocalizations.of(context)!.all)),
+                              SingleChildScrollView(child: _buildOtherUsers(AppLocalizations.of(context)!.thisWeek)),
+                              SingleChildScrollView(child: _buildOtherUsers(AppLocalizations.of(context)!.friends)),
                             ],
                           ),
                         ),
@@ -309,9 +309,14 @@ class TabItem extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
-            title,style: const TextStyle(fontSize: 12),
-            overflow: TextOverflow.ellipsis,
+          Expanded(
+            child: Center(
+              child: Text(
+                maxLines: 1,
+                title,style: const TextStyle(fontSize: 12),
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
           ),
         ],
       ),

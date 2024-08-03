@@ -17,6 +17,7 @@ import '../../../utils/constants/text_strings.dart';
 import '../../Insights/insights.dart';
 import '../../Insights/leaderboard.dart';
 import '../widgets/active_donation_marker.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:annapardaan/providers/user_provider.dart';
 
 class DonationScreen extends StatelessWidget {
@@ -81,7 +82,7 @@ class DonationScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 10.0, right: 10),
               child: SectionHeader(
-                title: TText.activeDonation,
+                title: AppLocalizations.of(context)!.activeDonation,
                 icon: Icons.arrow_forward_ios_rounded,
                 onIconPressed: () {},
               ),
@@ -93,7 +94,7 @@ class DonationScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 10.0, right: 10),
               child: SectionHeader(
-                title: TText.featureEvents,
+                title: AppLocalizations.of(context)!.featureEvents,
                 onViewAllPressed: () {},
               ),
             ),
@@ -120,13 +121,14 @@ class DonationScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            const Padding(
-              padding: EdgeInsets.all(10.0),
-              child: SectionHeader(title: TText.donationHistory),
+             Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: SectionHeader(
+                title: AppLocalizations.of(context)!.donationHistory),
             ),
             DonationList(),
             const SizedBox(height: 16),
-            const Insights(subtitle: TText.insightscard1, isDonorScreen: true,),
+            Insights(subtitle: AppLocalizations.of(context)!.insightscard1, isDonorScreen: true,),
             const SizedBox(height: 16),
             const BadgeEarned(),
             const SizedBox(height: 16),
