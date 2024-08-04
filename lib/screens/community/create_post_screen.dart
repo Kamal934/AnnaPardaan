@@ -326,16 +326,16 @@ class _CreatePostScreenState extends State<CreatePostScreen> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            IconButton(
-              onPressed: _generateOrRephraseCaption,
-              icon: const Icon(Icons.auto_fix_high),
+            GestureDetector(
+              onTap: _generateOrRephraseCaption,
+              child: const Icon(Icons.auto_fix_high),
             ),
             const SizedBox(
               width: 5,
             ),
-            IconButton(
-              onPressed: () => _showImagePicker(context),
-              icon: const Icon(
+            GestureDetector(
+              onTap: () => _showImagePicker(context),
+              child: const Icon(
                 Icons.image,
               ),
             ),

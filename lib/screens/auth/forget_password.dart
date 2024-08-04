@@ -121,33 +121,21 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                                     onPressed: _resetPassword,
                                   ),
                               ),
-                          const SizedBox(height: 5),
+                          const SizedBox(height: 20),
                           Center(
-                            child: SizedBox(
-                              width: double.infinity,
-                              height: 45,
-                              child: ElevatedButton(
-                                onPressed: () {
-                                  Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => const LoginScreen(),
-                                    ),
-                                  );
-                                },
-                                style: ElevatedButton.styleFrom(
-                                  foregroundColor: Colors.red, 
-                                  elevation: 2, 
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(
-                                        8), 
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const LoginScreen(),
                                   ),
-                                ),
-                                child: Text(
-                                  AppLocalizations.of(context)!.backToLogin,
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                                );
+                              },
+                              child: Text(
+                                AppLocalizations.of(context)!.backToLogin,
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ),

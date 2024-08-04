@@ -42,23 +42,23 @@ class _CommunityScreenState extends State<CommunityScreen> {
         actions: [
           Row(
             children: [
-              IconButton(
-                icon: Image.asset(
+              GestureDetector(
+                child: Image.asset(
                   TImages.bellImageIcon,
                   height: 25,
                   width: 25,
                   color: Colors.black,
                 ),
-                onPressed: () {},
+                onTap: () {},
               ),
-              IconButton(
-                icon: Image.asset(
+              GestureDetector(
+                child: Image.asset(
                   TImages.chatImageIcon,
                   height: 25,
                   width: 25,
                   color: Colors.black,
                 ),
-                onPressed: () {
+                onTap: () {
                   Navigator.push(
                       context,
                       MaterialPageRoute(

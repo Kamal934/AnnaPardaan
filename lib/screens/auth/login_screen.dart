@@ -84,13 +84,11 @@ class _LoginScreenState extends State<LoginScreen> {
 
       // Display error message to the user
       toastification.show(
-        style: ToastificationStyle.minimal,
-        autoCloseDuration: const Duration(seconds: 5),
-        alignment: Alignment.topRight,
-        primaryColor: Colors.red,
-          title:  Text(
-              errorMessage));
-
+          style: ToastificationStyle.minimal,
+          autoCloseDuration: const Duration(seconds: 5),
+          alignment: Alignment.topRight,
+          primaryColor: Colors.red,
+          title: Text(errorMessage));
     }
   }
 
@@ -104,12 +102,13 @@ class _LoginScreenState extends State<LoginScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 40),
-              Center(child: Image.asset(TImages.loginImg, height: 200)),
-               Text(
+              Center(child: Image.asset(TImages.loginImg, height: 250)),
+              Text(
                 AppLocalizations.of(context)!.welcome,
-                style: const TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
+                style:
+                    const TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
               ),
-               Text(
+              Text(
                 AppLocalizations.of(context)!.appname,
                 style: const TextStyle(
                   fontSize: 19,
@@ -117,12 +116,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   color: Colors.red,
                 ),
               ),
-               Text(
+              Text(
                 AppLocalizations.of(context)!.logintext,
                 style: const TextStyle(fontSize: 12, color: Colors.grey),
               ),
               const SizedBox(height: 10),
-               Text(
+              Text(
                 AppLocalizations.of(context)!.email,
                 style: const TextStyle(
                   fontSize: 15,
@@ -136,7 +135,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 mainDataType: MainDataType.email,
               ),
               const SizedBox(height: 3),
-               Text(
+              Text(
                 AppLocalizations.of(context)!.password,
                 style: const TextStyle(
                   fontSize: 15,
@@ -152,18 +151,20 @@ class _LoginScreenState extends State<LoginScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  TextButton(
-                    onPressed: () {
-                      // Navigate to forget password screen
+                  GestureDetector(
+                    onTap: () {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
                             builder: (context) => const ForgotPasswordScreen()),
                       );
                     },
-                    child:  Text(
-                      AppLocalizations.of(context)!.forgetPasswordQuestion,
-                      style: const TextStyle(color: Colors.red),
+                    child: Padding(
+                      padding: const EdgeInsets.all(3.0),
+                      child: Text(
+                        AppLocalizations.of(context)!.forgetPasswordQuestion,
+                        style: const TextStyle(color: Colors.red),
+                      ),
                     ),
                   ),
                 ],
@@ -176,30 +177,30 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(
                 height: 10,
               ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    const SizedBox(width: 20), 
-                    const SizedBox(
-                      width: 50, 
-                      child: Divider(color: Colors.black),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  const SizedBox(width: 20),
+                  const SizedBox(
+                    width: 50,
+                    child: Divider(color: Colors.black),
+                  ),
+                  const SizedBox(width: 5),
+                  Expanded(
+                    child: Text(
+                      AppLocalizations.of(context)!.anotheroption,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(color: Colors.black),
                     ),
-                    const SizedBox(width: 5),
-                    Expanded(
-                      child: Text(
-                        AppLocalizations.of(context)!.anotheroption,
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(color: Colors.black),
-                      ),
-                    ),
-                    const SizedBox(width: 5),
-                    const SizedBox(
-                      width: 50, 
-                      child: Divider(color: Colors.black),
-                    ),
-                    const SizedBox(width: 20), 
-                  ],
-                ),
+                  ),
+                  const SizedBox(width: 5),
+                  const SizedBox(
+                    width: 50,
+                    child: Divider(color: Colors.black),
+                  ),
+                  const SizedBox(width: 20),
+                ],
+              ),
               const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -235,11 +236,15 @@ class _LoginScreenState extends State<LoginScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                   Text(
+                  Text(
                     AppLocalizations.of(context)!.noAccount,
                     style: const TextStyle(color: Colors.grey),
                     maxLines: 1,
-                    overflow: TextOverflow.ellipsis,                ),
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  const SizedBox(
+                    width: 2,
+                  ),
                   GestureDetector(
                     onTap: () {
                       Navigator.pushReplacement(
@@ -247,7 +252,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         MaterialPageRoute(builder: (context) => SignupScreen()),
                       );
                     },
-                    child:  Text(
+                    child: Text(
                       AppLocalizations.of(context)!.signUp,
                       style: const TextStyle(
                         color: Colors.red,

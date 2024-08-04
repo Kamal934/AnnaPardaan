@@ -27,7 +27,7 @@ class SignupScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 40),
-                Center(child: Image.asset(TImages.signupImg, height: 200)),
+                Center(child: Image.asset(TImages.signupImg, height: 220)),
                 Text(
                   AppLocalizations.of(context)!.signupTitle,
                   style: const TextStyle(
@@ -143,6 +143,7 @@ class SignupScreen extends StatelessWidget {
                       AppLocalizations.of(context)!.havingAccount,
                       style: const TextStyle(color: Colors.grey),
                     ),
+                    const SizedBox(width: 2,),
                     GestureDetector(
                       onTap: () {
                         Navigator.pushReplacement(
