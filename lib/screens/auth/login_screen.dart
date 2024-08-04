@@ -177,30 +177,29 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 10,
               ),
                 Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  const SizedBox(width: 30,),
-                  const SizedBox(
-                    width: 70,
-                    child:
-                         Divider(color: Colors.black,), 
-                  ),
-                  const SizedBox(width: 5,),
-                  Expanded(
-                    child: Text(
-                      AppLocalizations.of(context)!.anotheroption,
-                      style: const TextStyle(color: Colors.black),
-                      overflow: TextOverflow.fade,
-                      maxLines: 1,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    const SizedBox(width: 20), 
+                    const SizedBox(
+                      width: 50, 
+                      child: Divider(color: Colors.black),
                     ),
-                  ),
-                  // const SizedBox(width: 5,),
-                  const SizedBox(width: 80,
-                    child: Divider(color: Colors.black,), 
-                  ),
-                  const SizedBox(width: 30,),
-                ],
-              ),
+                    const SizedBox(width: 5),
+                    Expanded(
+                      child: Text(
+                        AppLocalizations.of(context)!.anotheroption,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(color: Colors.black),
+                      ),
+                    ),
+                    const SizedBox(width: 5),
+                    const SizedBox(
+                      width: 50, 
+                      child: Divider(color: Colors.black),
+                    ),
+                    const SizedBox(width: 20), 
+                  ],
+                ),
               const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -241,8 +240,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     style: const TextStyle(color: Colors.grey),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,                ),
-                  TextButton(
-                    onPressed: () {
+                  GestureDetector(
+                    onTap: () {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(builder: (context) => SignupScreen()),

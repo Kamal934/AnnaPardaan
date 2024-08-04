@@ -21,7 +21,7 @@
     "mail": "E-mail",
     "mailTitle": "Entrez votre e-mail",
     "emailExample": "nom@exemple.com",
-    "resetOtp": "DEMANDER UN OTP DE RÉINITIALISATION",
+    "resetOtp": "Demande de réinitialisation d'otp",
     "backToLogin": "Retour à la connexion",
     "welcome": "Bienvenue à nouveau 👋 sur",
     "appname": "Annapradaan",

@@ -28,7 +28,6 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
     try {
       await _auth.sendPasswordResetEmail(email: _emailController.text.trim());
 
-      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Password reset OTP sent to your email.'),
@@ -36,10 +35,10 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
       );
 
       Navigator.pushReplacement(
-        // ignore: use_build_context_synchronously
         context,
         MaterialPageRoute(
-          builder: (context) => VerificationCodeScreen(email: _emailController.text.trim()),
+          builder: (context) =>
+              VerificationCodeScreen(email: _emailController.text.trim()),
         ),
       );
     } catch (e) {
@@ -48,13 +47,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
         autoCloseDuration: const Duration(seconds: 5),
         alignment: Alignment.topRight,
         primaryColor: Colors.red,
-          title:  Text(
-              'Error: $e'));
-      // ScaffoldMessenger.of(context).showSnackBar(
-      //   SnackBar(
-      //     content: Text('Error: $e'),
-      //   ),
-      // );
+        title: Text('Error: $e'),
+      );
     } finally {
       setState(() {
         _isLoading = false;
@@ -65,17 +59,18 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(  // Add this
+      body: SingleChildScrollView(
+        // Make the body scrollable
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               const SizedBox(height: 20),
-              Image.asset(TImages.forgetPasswordImg, height: 300),
+              Image.asset(TImages.forgetPasswordImg,
+                  height: 300), // Reduced height
               Center(
                 child: SizedBox(
-                  height: 330,
                   width: 290,
                   child: Card(
                     color: Colors.white,
@@ -85,20 +80,23 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                           Center(
+                          Center(
                             child: Text(
                               AppLocalizations.of(context)!.forgetPassword,
                               style: const TextStyle(
-                                  fontSize: 17, fontWeight: FontWeight.bold),
+                                fontSize: 17,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                           const SizedBox(height: 10),
-                           Text(
+                          Text(
                             AppLocalizations.of(context)!.forgetPassordSubtitle,
-                            style: const TextStyle(fontSize: 12, color: Colors.grey),
+                            style: const TextStyle(
+                                fontSize: 12, color: Colors.grey),
                           ),
                           const SizedBox(height: 10),
-                           Text(
+                          Text(
                             AppLocalizations.of(context)!.email,
                             style: const TextStyle(
                               fontSize: 15,
@@ -109,31 +107,47 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                           const SizedBox(height: 5),
                           CustomTextField(
                             controller: _emailController,
-                            hintText: AppLocalizations.of(context)!.emailExample,
+                            hintText:
+                                AppLocalizations.of(context)!.emailExample,
                             mainDataType: MainDataType.email,
                           ),
                           const SizedBox(height: 10),
                           _isLoading
                               ? const Center(child: CircularProgressIndicator())
-                              : CustomButton(
-                                  text: AppLocalizations.of(context)!.resetOtp,
-                                  onPressed: _resetPassword,
-                                ),
+                              : SizedBox(
+                                height: 45,
+                                child: CustomButton(
+                                    text: AppLocalizations.of(context)!.resetOtp,
+                                    onPressed: _resetPassword,
+                                  ),
+                              ),
                           const SizedBox(height: 5),
                           Center(
-                            child: TextButton(
-                              onPressed: () {
-                                Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const LoginScreen()),
-                                );
-                              },
-                              child:  Text(
-                                AppLocalizations.of(context)!.backToLogin,
-                                style: const TextStyle(
-                                  color: Colors.red,
-                                  fontWeight: FontWeight.bold,
+                            child: SizedBox(
+                              width: double.infinity,
+                              height: 45,
+                              child: ElevatedButton(
+                                onPressed: () {
+                                  Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const LoginScreen(),
+                                    ),
+                                  );
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  foregroundColor: Colors.red, 
+                                  elevation: 2, 
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(
+                                        8), 
+                                  ),
+                                ),
+                                child: Text(
+                                  AppLocalizations.of(context)!.backToLogin,
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
                             ),
