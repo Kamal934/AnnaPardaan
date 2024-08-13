@@ -49,4 +49,3 @@ This Code of Conduct is adapted from the [Contributor Covenant](https://www.cont
 
 ---
 
-Feel free to customize any sections to better fit your project’s values and community.
