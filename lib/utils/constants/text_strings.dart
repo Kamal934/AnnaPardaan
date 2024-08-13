@@ -183,7 +183,7 @@ class TText {
   static const String overallRequest = 'Overall \nRequest';
   static const String donorConnected = 'Donors \nConnected';
   static const String topDonor = 'Your Top Donors';
-  static const String leaderBoard='LeaderBoard';
+  static const String leaderBoard = 'LeaderBoard';
 
   //HomeScreen
   static const String orderHistory = 'Order History';
@@ -207,9 +207,7 @@ class TText {
       'What\'s on your mind?\nShare relevant topics with the community';
 
   // navigationBar
-  static const String home='Home';
-  static const String hungerSpots="Hunger Spot";
-  static const String menu='Menu';
-
+  static const String home = 'Home';
+  static const String hungerSpots = "Hunger Spot";
+  static const String menu = 'Menu';
 }
-
