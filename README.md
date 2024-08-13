@@ -11,7 +11,11 @@
 ## 🧐 About
 AnnaPradaan is an innovative online platform designed to facilitate food donations by connecting donors, recipients, and volunteers for the efficient redistribution of surplus food. Donors, including restaurants and event organizers, can easily contribute excess food through the app. Recipients, such as orphanages and shelters, receive these donated food items, while volunteers assist with the delivery process. Through this streamlined approach, AnnaPradaan effectively addresses food insecurity and reduces food waste, making a positive impact on communities. Our mission is to minimize food waste and tackle food insecurity by enabling seamless food donations from businesses and individuals to those in need.
 
-[![Annapradaan](https://img.youtube.com/vi/YZE8RA6noig/hqdefault.jpg)](https://www.youtube.com/watch?v=YZE8RA6noig)
+
+## Watch Our Introduction Video
+[![Annapradaan](https://github.com/user-attachments/assets/8e7921aa-7359-4083-a725-b02387599b1c) ](https://www.youtube.com/watch?v=YZE8RA6noig)
+
+Check out our video to learn more about how AnnaPradaan works and how you can contribute!
 
 
 ## 🌟 Features
@@ -27,13 +31,14 @@ AnnaPradaan is an innovative online platform designed to facilitate food donatio
 
 Before running the project, make sure you have the necessary files downloaded:
 
- firebase_options.dart: Located in the lib folder.
- google-services.json: Located in the android/app/ directory.
+ - firebase_options.dart: Located in the lib folder.
+ - google-services.json: Located in the android/app/ directory.
 
 You can download these files from the following links:
 
- firebase_options.dart
- google-services.json
+ - firebase_options.dart
+ - google-services.json
+
 
 ## 🚀 Installation
 
