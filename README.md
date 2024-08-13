@@ -2,10 +2,10 @@
 # 🥘 Annapradaan
 
 ## 📖 Table of Contents
-1. [About](#about)
-2. [Features](#features)
-3. [Installation](#installation)
-4. [Building the APK](#building-the-apk)
+1. [About](#About)
+2. [Features](#Features)
+3. [Installation](#Installation)
+4. [Building the APK](#Building-the-apk)
 5. [License](#license)
 
 ## 🧐 About
@@ -22,6 +22,18 @@ Annapradaan is an innovative food donation platform designed to connect donors, 
 - **Community Engagement**: Participate in events and campaigns to raise awareness about food waste and hunger.
 - **Multi-language Support**: Available in 12 languages.
 - **Google Maps Integration**: Find and donate to nearby hunger spots.
+
+## Getting Started
+
+Before running the project, make sure you have the necessary files downloaded:
+
+    firebase_options.dart: Located in the lib folder.
+    google-services.json: Located in the android/app/ directory.
+
+You can download these files from the following links:
+
+    firebase_options.dart
+    google-services.json
 
 ## 🚀 Installation
 
