@@ -27,13 +27,13 @@ Annapradaan is an innovative food donation platform designed to connect donors, 
 
 Before running the project, make sure you have the necessary files downloaded:
 
-    firebase_options.dart: Located in the lib folder.
-    google-services.json: Located in the android/app/ directory.
+ firebase_options.dart: Located in the lib folder.
+ google-services.json: Located in the android/app/ directory.
 
 You can download these files from the following links:
 
-    firebase_options.dart
-    google-services.json
+ firebase_options.dart
+ google-services.json
 
 ## 🚀 Installation
 
