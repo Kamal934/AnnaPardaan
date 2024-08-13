@@ -9,7 +9,7 @@
 5. [License](#license)
 
 ## 🧐 About
-Annapradaan is an innovative food donation platform designed to connect donors, recipients, and volunteers. Our mission is to reduce food waste and address food insecurity by facilitating seamless food donations from businesses and individuals to those in need.
+AnnaPradaan is an innovative online platform designed to facilitate food donations by connecting donors, recipients, and volunteers for the efficient redistribution of surplus food. Donors, including restaurants and event organizers, can easily contribute excess food through the app. Recipients, such as orphanages and shelters, receive these donated food items, while volunteers assist with the delivery process. Through this streamlined approach, AnnaPradaan effectively addresses food insecurity and reduces food waste, making a positive impact on communities. Our mission is to minimize food waste and tackle food insecurity by enabling seamless food donations from businesses and individuals to those in need.
 
 [![Annapradaan](https://img.youtube.com/vi/YZE8RA6noig/hqdefault.jpg)](https://www.youtube.com/watch?v=YZE8RA6noig)
 
